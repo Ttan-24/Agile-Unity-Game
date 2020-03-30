@@ -67,6 +67,7 @@
     <Compile Include="Assets\LookingScript.cs" />
     <Compile Include="Assets\MovementEnemy.cs" />
     <Compile Include="Assets\WinGameOver.cs" />
+    <Compile Include="Assets\playerKeys.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>D:/Windows Documents/GitHub/Agile-Unity-Game/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

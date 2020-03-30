@@ -42,7 +42,6 @@ public class LookingScript : MonoBehaviour
 
                 
                 Enemy.gameObject.GetComponent<WinGameOver>().GameOver();
-                Enemy.gameObject.GetComponent<HealthEnemy>().health_of_enemy--;
             }
         }
     }

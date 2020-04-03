@@ -26,8 +26,8 @@ public class LookingScript : MonoBehaviour
             {
                 Transform hitObject = hit.transform;
 
-
                 hitObject.gameObject.GetComponent<DoorScript>().close_door--;
+
                 hitObject.gameObject.GetComponent<HealthEnemy>().health_of_enemy--;
 
                 //Destroy(Enemy.gameObject);

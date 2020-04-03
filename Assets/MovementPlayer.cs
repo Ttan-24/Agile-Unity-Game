@@ -40,6 +40,6 @@ public class MovementPlayer : MonoBehaviour
             m_rigidbody.AddForce(new Vector3(0, 1000.0f, 0));
         }
 
-        m_rigidbody.velocity *= 0.93f;
+        m_rigidbody.velocity *= 0.92f;
     }
 }

@@ -5,9 +5,10 @@ using UnityEngine;
 public class DoorScript : MonoBehaviour
 {
     // Start is called before the first frame update
+    public GameObject KeyCountText;
     void Start()
     {
-        
+        KeyCountText = GameObject.Find("KeyCountText");
     }
 
     // Update is called once per frame
@@ -18,6 +19,10 @@ public class DoorScript : MonoBehaviour
 
     public void Open()
     {
-        Destroy(gameObject);
+        if (KeyCountText.gameObject.GetComponent<KeyCountScript>().KeyCount > 0)
+        {
+            KeyCountText.gameObject.GetComponent<KeyCountScript>().KeyCount--;
+            Destroy(gameObject);
+        }
     }
 }

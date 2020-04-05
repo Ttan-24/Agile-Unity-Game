@@ -26,9 +26,22 @@ public class LookingScript : MonoBehaviour
             {
                 Transform hitObject = hit.transform;
 
-                hitObject.gameObject.GetComponent<DoorScript>().close_door--;
+                DoorScript doorScript = hitObject.GetComponent<DoorScript>();
+                KeyScript keyScript = hitObject.GetComponent<KeyScript>();
+                HealthEnemy healthScript = hitObject.GetComponent<HealthEnemy>();
 
-                hitObject.gameObject.GetComponent<HealthEnemy>().health_of_enemy--;
+                if (doorScript != null)
+                {
+                    doorScript.Open();
+                }
+                if (keyScript != null)
+                {
+                    keyScript.AddKey();
+                }
+                if (healthScript != null)
+                {
+                    healthScript.health_of_enemy--;
+                }
 
                 //Destroy(Enemy.gameObject);
                 //Enemy.transform.position = new Vector3(0.0f, 0.0f, 0.0f);

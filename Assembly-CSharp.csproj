@@ -64,7 +64,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\HealthEnemy.cs" />
+    <Compile Include="Assets\HealthPlayer.cs" />
     <Compile Include="Assets\LookingScript.cs" />
+    <Compile Include="Assets\LoseGameOver.cs" />
     <Compile Include="Assets\MovementEnemy.cs" />
     <Compile Include="Assets\WinGameOver.cs" />
     <Compile Include="Assets\playerKeys.cs" />

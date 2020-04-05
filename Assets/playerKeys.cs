@@ -23,5 +23,10 @@ public class playerKeys : MonoBehaviour
         
     }
 
+    public int getCurrentKeys() 
+    {
+        return currentKeys;
+    }
+
 
 }

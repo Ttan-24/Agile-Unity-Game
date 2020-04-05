@@ -7,6 +7,8 @@ public class LookingScript : MonoBehaviour
     public Camera camera;
     bool mouseClicked;
     bool activatedPressed;
+    public GameObject Player;
+    public int requiredNumOfKeys;
 
     // Start is called before the first frame update
     void Start()
@@ -40,8 +42,16 @@ public class LookingScript : MonoBehaviour
             {
                 Transform Enemy = hit.transform;
 
+                if (Player.GetComponent<playerKeys>().getCurrentKeys() >= requiredNumOfKeys)
+                {
+                    Enemy.gameObject.GetComponent<WinGameOver>().GameOver();
+                    // will close the game but doesnt close while in debug
+                }
+                else
+                {
+                    //not enough keys. add a warning or something?
+                }
                 
-                Enemy.gameObject.GetComponent<WinGameOver>().GameOver();
             }
         }
     }

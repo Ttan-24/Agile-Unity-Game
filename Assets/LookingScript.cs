@@ -24,9 +24,25 @@ public class LookingScript : MonoBehaviour
         {
             if (Physics.Raycast(ray, out hit))
             {
-                Transform Enemy = hit.transform;
+                Transform hitObject = hit.transform;
 
-                Enemy.gameObject.GetComponent<HealthEnemy>().health_of_enemy--; 
+                DoorScript doorScript = hitObject.GetComponent<DoorScript>();
+                KeyScript keyScript = hitObject.GetComponent<KeyScript>();
+                HealthEnemy healthScript = hitObject.GetComponent<HealthEnemy>();
+
+                if (doorScript != null)
+                {
+                    doorScript.Open();
+                }
+                if (keyScript != null)
+                {
+                    keyScript.AddKey();
+                }
+                if (healthScript != null)
+                {
+                    healthScript.health_of_enemy--;
+                }
+
                 //Destroy(Enemy.gameObject);
                 //Enemy.transform.position = new Vector3(0.0f, 0.0f, 0.0f);
                 // Do something with the object that was hit by the raycast.

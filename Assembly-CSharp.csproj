@@ -65,10 +65,12 @@
   <ItemGroup>
     <Compile Include="Assets\DoorScript.cs" />
     <Compile Include="Assets\HealthEnemy.cs" />
+    <Compile Include="Assets\KeyCountScript.cs" />
     <Compile Include="Assets\KeyScript.cs" />
     <Compile Include="Assets\LookingScript.cs" />
     <Compile Include="Assets\MovementEnemy.cs" />
     <Compile Include="Assets\MovementPlayer.cs" />
+    <Compile Include="Assets\TimerScript.cs" />
     <None Include="Assets\Models\Tim's Assets\Doors\Shader\BloodyDoor.shader" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/Admin/Documents/GitHub/Agile-Unity-Game/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>

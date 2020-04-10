@@ -24,6 +24,12 @@ public class LookingScript : MonoBehaviour
         RaycastHit hit;
         Ray ray = camera.ScreenPointToRay(Input.mousePosition);
 
+        if (Physics.Raycast(ray, out hit))
+        {
+            Transform Enemy = hit.transform;
+            Enemy.gameObject.GetComponent<MovementEnemy>().LookedAt();
+        }
+
         if (mouseClicked == true)
         {
             if (Physics.Raycast(ray, out hit))

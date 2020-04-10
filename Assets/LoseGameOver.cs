@@ -18,6 +18,6 @@ public class LoseGameOver : MonoBehaviour
 
     public void GameOver() 
     {
-        
+        Application.Quit();
     }
 }

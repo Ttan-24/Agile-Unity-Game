@@ -68,6 +68,7 @@
     <Compile Include="Assets\LookingScript.cs" />
     <Compile Include="Assets\LoseGameOver.cs" />
     <Compile Include="Assets\MovementEnemy.cs" />
+    <Compile Include="Assets\WhenLookedAt.cs" />
     <Compile Include="Assets\WinGameOver.cs" />
     <Compile Include="Assets\playerKeys.cs" />
     <Reference Include="Unity.Timeline.Editor">

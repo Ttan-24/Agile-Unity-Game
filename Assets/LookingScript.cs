@@ -48,5 +48,15 @@ public class LookingScript : MonoBehaviour
                 // Do something with the object that was hit by the raycast.
             }
         }
+        else
+        {
+            if (Physics.Raycast(ray, out hit))
+            {
+                // this will cause a nullReferance exception on every model
+                // will persist unless we give every script an id to prevent this
+                Transform Enemy = hit.transform;
+                Enemy.gameObject.GetComponent<MovementEnemy>().LookedAt();
+            }
+        }
     }
 }

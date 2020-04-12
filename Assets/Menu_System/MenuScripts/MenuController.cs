@@ -44,7 +44,8 @@ public class MenuController : MonoBehaviour
     [Space(10)]
     [Header("Username Fields")]
     [SerializeField] private GameObject inputUsername;
-    [SerializeField] private GameObject usernameWarning;
+    [SerializeField] private Text usernameWarning;
+    [SerializeField] private string username;
     #endregion
 
     #region Slider Linking
@@ -354,7 +355,7 @@ public class MenuController : MonoBehaviour
         if (ButtonType == "Confirm")
         {
             //username validation
-            string username = inputUsername.GetComponent<InputField>().text.ToString();
+            username = inputUsername.GetComponent<InputField>().text.ToString();
             if (username == "")
             {
                 usernameWarning.GetComponent<Text>().text = "Username cannot be null";
@@ -383,6 +384,7 @@ public class MenuController : MonoBehaviour
             }
             else
             {
+                PlayerPrefs.SetString("username", username); //save username
                 //load maze
                 SceneManager.LoadScene(maze);
             }            

@@ -9,6 +9,7 @@ using System.Runtime.InteropServices;
 using System.IO;
 using TMPro;
 using System.Reflection;
+using UnityEngine.UIElements;
 
 public class MenuController : MonoBehaviour
 {
@@ -36,31 +37,35 @@ public class MenuController : MonoBehaviour
     [SerializeField] private GameObject controlsMenu;
     [SerializeField] private GameObject confirmationMenu;
     [Space(10)]
-    [Header("Menu Popout Dialogs")]
+    [Header("High Score Fields")]
     //[SerializeField] private GameObject noSaveDialog;
     [SerializeField] private GameObject newGameDialog;
     [SerializeField] private GameObject highScoreGameDialog; //loadGameDialog
+    [Space(10)]
+    [Header("Username Fields")]
+    [SerializeField] private GameObject inputUsername;
+    [SerializeField] private GameObject usernameWarning;
     #endregion
 
     #region Slider Linking
     [Header("Menu Sliders")]
     [SerializeField] private Text controllerSenText;
-    [SerializeField] private Slider controllerSenSlider;
+    [SerializeField] private UnityEngine.UI.Slider controllerSenSlider;
     public float controlSenFloat = 2f;
     [Space(10)]
     [SerializeField] private Brightness brightnessEffect;
-    [SerializeField] private Slider brightnessSlider;
+    [SerializeField] private UnityEngine.UI.Slider brightnessSlider;
     [SerializeField] private Text brightnessText;
     [Space(10)]
     [SerializeField] private Text volumeText;
-    [SerializeField] private Slider volumeSlider;
+    [SerializeField] private UnityEngine.UI.Slider volumeSlider;
     [Space(10)]
-    [SerializeField] private Toggle invertYToggle;
+    [SerializeField] private UnityEngine.UI.Toggle invertYToggle;
     [Space(10)]
     [SerializeField] private Text selectText;
-    [SerializeField] private Image mousePointerIcon;
+    [SerializeField] private UnityEngine.UI.Image mousePointerIcon;
     [SerializeField] private Text cancelText;
-    [SerializeField] private Image escKeyIcon;
+    [SerializeField] private UnityEngine.UI.Image escKeyIcon;
     #endregion
 
     #region High Score Entries
@@ -346,16 +351,49 @@ public class MenuController : MonoBehaviour
     #region Dialog Options
     public void ClickNewGameDialog(string ButtonType)
     {
-        if (ButtonType == "Yes")
+        if (ButtonType == "Confirm")
         {
-            SceneManager.LoadScene(maze);
-            //SceneManager.LoadScene(level);
-            //*********todo***********
-            //load maze
+            //username validation
+            string username = inputUsername.GetComponent<InputField>().text.ToString();
+            if (username == "")
+            {
+                usernameWarning.GetComponent<Text>().text = "Username cannot be null";
+                usernameWarning.GetComponent<Text>().color = Color.red;
+                Debug.Log("Username cannot be null");
+            }
+            else if (username.Length > 10)
+            {
+                usernameWarning.GetComponent<Text>().text = "Username is too long (maximum 10 characters)";
+                usernameWarning.GetComponent<Text>().color = Color.red;
+                Debug.Log("Username is too long (maximum 10 characters)");
+            }
+            else if (username.ToLower().Contains("fuck") || username.ToLower().Contains("whore") || username.ToLower().Contains("dick") || 
+                username.ToLower().Contains("shit") || username.ToLower().Contains("asshole") || username.ToLower().Contains("bitch") || username.ToLower().Contains("cunt") ||
+                username.ToLower().Contains("nigga") || username.ToLower().Contains("nigger"))
+            {
+                usernameWarning.GetComponent<Text>().text = "Your username include forbidden world";
+                usernameWarning.GetComponent<Text>().color = Color.red;
+                Debug.Log("Your username include forbidden world.");
+            }
+            else if (username.Contains(","))
+            {
+                usernameWarning.GetComponent<Text>().text = "The username cannot contain comma";
+                usernameWarning.GetComponent<Text>().color = Color.red;
+                Debug.Log("The username cannot contain comma");
+            }
+            else
+            {
+                //load maze
+                SceneManager.LoadScene(maze);
+            }            
         }
 
-        if (ButtonType == "No")
+        if (ButtonType == "Back")
         {
+            inputUsername.GetComponent<InputField>().text = "";
+            usernameWarning.GetComponent<Text>().text = "Username must be maximum 10 characters long.";
+            usernameWarning.GetComponent<Text>().color = new Color32(125,125,125,255);
+
             GoBackToMainMenu();
         }
     }

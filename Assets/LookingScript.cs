@@ -52,10 +52,16 @@ public class LookingScript : MonoBehaviour
         {
             if (Physics.Raycast(ray, out hit))
             {
-                // this will cause a nullReferance exception on every model
-                // will persist unless we give every script an id to prevent this
                 Transform Enemy = hit.transform;
-                Enemy.gameObject.GetComponent<MovementEnemy>().LookedAt();
+                try
+                {
+                    Enemy.gameObject.GetComponent<MovementEnemy>().LookedAt();
+                }
+                catch (System.Exception)
+                {
+
+                }
+                
             }
         }
     }

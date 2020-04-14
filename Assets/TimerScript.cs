@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class TimerScript : MonoBehaviour
 {
-    public int timer;
+    public int timer = 0;
+    public float interval = 1.0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,14 +17,15 @@ public class TimerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        gameObject.GetComponent<Text>().text = "Timer: " + timer;
-        if (Time.frameCount % 60 == 0)
+        gameObject.GetComponent<Text>().text = "Timer: " + timer / 60 + "m " + timer % 60 + "s";
+        if (interval < 0)
         {
-            timer--;
+            timer++;
+            interval = 1.0f;
         }
-        if (timer <= 0)
+        else
         {
-            //SceneManager.LoadScene("WinScreen");
+            interval -= Time.deltaTime;
         }
     }
 }

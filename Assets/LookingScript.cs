@@ -56,20 +56,20 @@ public class LookingScript : MonoBehaviour
             
         }
         else
+        {
+            if (Physics.Raycast(ray, out hit))
             {
-                if (Physics.Raycast(ray, out hit))
+                Transform Enemy = hit.transform;
+                try
                 {
-                    Transform Enemy = hit.transform;
-                    try
-                    {
-                        Enemy.gameObject.GetComponent<MovementEnemy>().LookedAt();
-                    }
-                    catch (System.Exception)
-                    {
-
-                    }
+                    Enemy.gameObject.GetComponent<MovementEnemy>().LookedAt();
+                }
+                catch (System.Exception)
+                {
 
                 }
+
             }
+        }
     }
 }

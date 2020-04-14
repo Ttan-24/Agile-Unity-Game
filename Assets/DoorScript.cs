@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DoorScript : MonoBehaviour
 {
@@ -26,6 +27,7 @@ public class DoorScript : MonoBehaviour
             if (gameExit)
             {
                 //PlaceHolderForWin
+                SceneManager.LoadScene("WinScene");
             }
             else
             {

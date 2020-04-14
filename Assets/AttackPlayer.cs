@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AttackPlayer : MonoBehaviour
 {
@@ -27,7 +28,7 @@ public class AttackPlayer : MonoBehaviour
             //Game Over for player
 
 
-
+            SceneManager.LoadScene("LoseScene");
             //tests distance
             //throw new System.Exception(dist.ToString());
         }

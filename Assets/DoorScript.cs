@@ -6,7 +6,6 @@ public class DoorScript : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject KeyCountText;
-    public bool gameExit;
     void Start()
     {
         KeyCountText = GameObject.Find("KeyCountText");
@@ -20,21 +19,10 @@ public class DoorScript : MonoBehaviour
 
     public void Open()
     {
-
         if (KeyCountText.gameObject.GetComponent<KeyCountScript>().KeyCount > 0)
         {
-            if (gameExit)
-            {
-                //PlaceHolderForWin
-            }
-            else
-            {
-                KeyCountText.gameObject.GetComponent<KeyCountScript>().KeyCount--;
-                Destroy(gameObject);
-            }
+            KeyCountText.gameObject.GetComponent<KeyCountScript>().KeyCount--;
+            Destroy(gameObject);
         }
-
-        
-        
     }
 }

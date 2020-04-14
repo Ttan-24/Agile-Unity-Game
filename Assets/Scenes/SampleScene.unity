@@ -4254,26 +4254,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d3216ba958738bf46ae6d39644b40a68, type: 3}
---- !u!1 &1040802632 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7073360484307911775, guid: 55b9279661f2cf243b507bbf7d607d1f,
-    type: 3}
-  m_PrefabInstance: {fileID: 1332323593}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1040802633
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1040802632}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a15fabf428f979458b4e942c22fb141, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 58529769}
-  range: 6
 --- !u!1 &1056426390
 GameObject:
   m_ObjectHideFlags: 0
@@ -4564,11 +4544,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Door (11)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6723068470087438588, guid: d3216ba958738bf46ae6d39644b40a68,
-        type: 3}
-      propertyPath: gameExit
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6723068470087863506, guid: d3216ba958738bf46ae6d39644b40a68,
         type: 3}
@@ -6599,19 +6574,6 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 58529769}
-    - target: {fileID: 587303367, guid: 55b9279661f2cf243b507bbf7d607d1f, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 587303367, guid: 55b9279661f2cf243b507bbf7d607d1f, type: 3}
-      propertyPath: shouldBeLookedAtToMove
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7073360484307911768, guid: 55b9279661f2cf243b507bbf7d607d1f,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7073360484307911771, guid: 55b9279661f2cf243b507bbf7d607d1f,
         type: 3}
       propertyPath: m_LocalPosition.x

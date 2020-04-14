@@ -53,21 +53,5 @@ public class LookingScript : MonoBehaviour
                 // Do something with the object that was hit by the raycast.
             }
         }
-        else
-        {
-            if (Physics.Raycast(ray, out hit))
-            {
-                Transform Enemy = hit.transform;
-                try
-                {
-                    Enemy.gameObject.GetComponent<MovementEnemy>().LookedAt();
-                }
-                catch (System.Exception)
-                {
-
-                }
-                
-            }
-        }
     }
 }

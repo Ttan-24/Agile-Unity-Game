@@ -32,7 +32,11 @@ public class LookingScript : MonoBehaviour
 
                 if (doorScript != null)
                 {
-                    doorScript.Open();
+                    float distance = Vector3.Distance(gameObject.transform.position, hitObject.transform.position);
+                    if (distance <= 10)
+                    {
+                        doorScript.Open();
+                    }
                 }
                 if (keyScript != null)
                 {

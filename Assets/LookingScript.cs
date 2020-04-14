@@ -30,21 +30,22 @@ public class LookingScript : MonoBehaviour
                 KeyScript keyScript = hitObject.GetComponent<KeyScript>();
                 HealthEnemy healthScript = hitObject.GetComponent<HealthEnemy>();
 
-                if (doorScript != null)
+                float distance = hit.distance;
+                Debug.Log("Distance from " + hitObject.gameObject.name + ": " + distance);
+                if (distance <= 10)
                 {
-                    float distance = Vector3.Distance(gameObject.transform.position, hitObject.transform.position);
-                    if (distance <= 10)
+                    if (doorScript != null)
                     {
                         doorScript.Open();
                     }
-                }
-                if (keyScript != null)
-                {
-                    keyScript.AddKey();
-                }
-                if (healthScript != null)
-                {
-                    healthScript.health_of_enemy--;
+                    if (keyScript != null)
+                    {
+                        keyScript.AddKey();
+                    }
+                    if (healthScript != null)
+                    {
+                        healthScript.health_of_enemy--;
+                    }
                 }
 
                 //Destroy(Enemy.gameObject);

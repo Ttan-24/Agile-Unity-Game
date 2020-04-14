@@ -6,11 +6,12 @@ public class LookingScript : MonoBehaviour
 {
     public Camera camera;
     bool mouseClicked;
+    public AudioSource doorOpenSound;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        doorOpenSound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -36,6 +37,7 @@ public class LookingScript : MonoBehaviour
                 {
                     if (doorScript != null)
                     {
+                        doorOpenSound.Play();
                         doorScript.Open();
                     }
                     if (keyScript != null)

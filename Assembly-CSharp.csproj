@@ -77,6 +77,7 @@
     <Compile Include="Assets\Menu_System\MenuScripts\MenuController.cs" />
     <Compile Include="Assets\MovementEnemy.cs" />
     <Compile Include="Assets\MovementPlayer.cs" />
+    <Compile Include="Assets\RestartGame.cs" />
     <Compile Include="Assets\SwitchScenes.cs" />
     <Compile Include="Assets\TimerScript.cs" />
     <Compile Include="Assets\UsernameScript.cs" />

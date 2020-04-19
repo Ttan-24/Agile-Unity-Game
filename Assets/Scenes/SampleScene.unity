@@ -4570,6 +4570,21 @@ PrefabInstance:
       propertyPath: gameExit
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6723068470087438588, guid: d3216ba958738bf46ae6d39644b40a68,
+        type: 3}
+      propertyPath: KeyCountText
+      value: 
+      objectReference: {fileID: 690744406}
+    - target: {fileID: 6723068470087438588, guid: d3216ba958738bf46ae6d39644b40a68,
+        type: 3}
+      propertyPath: timer
+      value: 
+      objectReference: {fileID: 859754033}
+    - target: {fileID: 6723068470087438588, guid: d3216ba958738bf46ae6d39644b40a68,
+        type: 3}
+      propertyPath: username
+      value: 
+      objectReference: {fileID: 699994372}
     - target: {fileID: 6723068470087863506, guid: d3216ba958738bf46ae6d39644b40a68,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.119
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.15160939, g: 0.17213687, b: 0.2044332, a: 0.119}
+  m_IndirectSpecularColor: {r: 0.15160966, g: 0.17213729, b: 0.20443356, a: 0.119}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3999,6 +3999,48 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 859754033}
   m_CullTransparentMesh: 0
+--- !u!1 &901394214 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7412835294311418733, guid: 6e9d95b3994e00b4c8e3b89c1db0ef17,
+    type: 3}
+  m_PrefabInstance: {fileID: 1584778312786801228}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &901394219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 901394214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 757eb7997781f63479631033e957d33c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  answer1Btn: {fileID: 0}
+  answer2Btn: {fileID: 0}
+  answer3Btn: {fileID: 0}
+  answer4Btn: {fileID: 0}
+  answer5Btn: {fileID: 0}
+  answer6Btn: {fileID: 0}
+  answer1Text: {fileID: 0}
+  answer2Text: {fileID: 0}
+  answer3Text: {fileID: 0}
+  answer4Text: {fileID: 0}
+  answer5Text: {fileID: 0}
+  answer6Text: {fileID: 0}
+  finalAnswer: {fileID: 0}
+  num1Text: {fileID: 0}
+  num2Text: {fileID: 0}
+  num3Text: {fileID: 0}
+  operator1: {fileID: 0}
+  operator2: {fileID: 0}
+  submitBtn: {fileID: 0}
+  backBtn: {fileID: 0}
+  okBtn: {fileID: 0}
+  topText: {fileID: 0}
+  riddle1Dialog: {fileID: 0}
+  riddle1ConfirmationDialog: {fileID: 0}
 --- !u!1 &926753343
 GameObject:
   m_ObjectHideFlags: 0
@@ -8697,6 +8739,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5802034573239908734, guid: 6e9d95b3994e00b4c8e3b89c1db0ef17,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 66
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e9d95b3994e00b4c8e3b89c1db0ef17, type: 3}

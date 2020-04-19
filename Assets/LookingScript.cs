@@ -33,7 +33,7 @@ public class LookingScript : MonoBehaviour
                 DoorScript doorScript = hitObject.GetComponent<DoorScript>();
                 KeyScript keyScript = hitObject.GetComponent<KeyScript>();
                 HealthEnemy healthScript = hitObject.GetComponent<HealthEnemy>();
-                RiddleScript riddleScript = hitObject.GetComponent<RiddleScript>();
+                Riddle1Script riddleScript = hitObject.GetComponent<Riddle1Script>();
 
                 float distance = hit.distance;
                 Debug.Log("Distance from " + hitObject.gameObject.name + ": " + distance);
@@ -54,9 +54,10 @@ public class LookingScript : MonoBehaviour
                     if (riddleScript != null)
                     {
                         //open scene
-                        riddleScript.OpenScene();
+                        //riddleScript.OpenScene();
                         Debug.Log("opened");
-                        //SceneManager.LoadScene(riddle1);
+                        Screen.lockCursor = false;
+                        SceneManager.LoadScene(riddle1);
                     }
                 }
 

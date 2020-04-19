@@ -81,8 +81,8 @@
     <Compile Include="Assets\SwitchScenes.cs" />
     <Compile Include="Assets\TimerScript.cs" />
     <Compile Include="Assets\UsernameScript.cs" />
+    <None Include="Assets\leaderboard.txt" />
     <None Include="Assets\Menu_System\GUI Elements\UI_BrightnessShader\BrightnessEffect.shader" />
-    <None Include="Assets\Menu_System\leaderboard.txt" />
     <None Include="Assets\Models\Tim's Assets\Doors\Shader\BloodyDoor.shader" />
     <None Include="Assets\Menu_System\GUI Elements\UI_Fonts\im-fell-dw-pica-pro\SIL Open Font License.txt" />
     <Reference Include="Unity.Timeline.Editor">

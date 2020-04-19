@@ -35,8 +35,12 @@ public class Riddle1Script : MonoBehaviour
     [Header("Control Buttons")]
     [SerializeField] private Button submitBtn;
     [SerializeField] private Button backBtn;
+    [SerializeField] private Button okBtn;
 
-    [SerializeField] private GameObject riddle1Canvas;
+
+    [SerializeField] private Text topText;
+    [SerializeField] private GameObject riddle1Dialog;
+    [SerializeField] private GameObject riddle1ConfirmationDialog;
 
     private int correctAnswer;
     private string equation;
@@ -62,11 +66,12 @@ public class Riddle1Script : MonoBehaviour
         answer5Btn.onClick.AddListener(() => TaskOnClick("answer5"));
         answer6Btn.onClick.AddListener(() => TaskOnClick("answer6"));
         submitBtn.onClick.AddListener(() => TaskOnClick("submit"));
+        okBtn.onClick.AddListener(() => TaskOnClick("ok"));
     }
 
     void TaskOnClick(string buttonType)
     {
-        if (buttonType != "submit" && buttonType != "back")
+        if (buttonType != "submit" && buttonType != "back" && buttonType != "ok")
         {
             
             if (buttonType == "answer1") chosenAnswer = int.Parse(answer1Text.text);
@@ -87,11 +92,37 @@ public class Riddle1Script : MonoBehaviour
             if (chosenAnswer == correctAnswer)
             {
                 Debug.Log("Congrats. Good Answer.");
-                riddle1Canvas.SetActive(false);
+                riddle1Dialog.SetActive(false);
+                topText.text = "Correct Answer!";
+                topText.GetComponent<Text>().color = Color.green;
+                riddle1ConfirmationDialog.SetActive(true);
+
             }
             else
             {
                 Debug.Log("Bad Luck");
+                riddle1Dialog.SetActive(false);
+                topText.text = "Incorrect Answer!";
+                topText.GetComponent<Text>().color = Color.red;
+                riddle1ConfirmationDialog.SetActive(true);
+            }
+        }
+        else if (buttonType == "ok")
+        {
+            if (topText.text.ToLower().Contains("incorrect"))
+            {
+                riddle1ConfirmationDialog.SetActive(false);
+                riddle1Dialog.SetActive(true);
+                //time + 10 sec (don't click if you don't know the answer)
+            }
+            else
+            {
+                //increse number of keys
+
+                //time - 5sec
+
+                //come back to the previous scene
+                Debug.Log("OK. Correct");
             }
         }
     }

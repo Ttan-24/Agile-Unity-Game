@@ -6,7 +6,6 @@ using UnityScript.Steps;
 
 public class Riddle1Script : MonoBehaviour
 {
-
     #region Answers
     [Header("Answer Buttons")]
     [SerializeField] private Button answer1Btn;
@@ -123,6 +122,8 @@ public class Riddle1Script : MonoBehaviour
 
                 //come back to the previous scene
                 Debug.Log("OK. Correct");
+                Screen.lockCursor = true;
+                UnityEngine.SceneManagement.SceneManager.LoadScene(scene);
             }
         }
     }

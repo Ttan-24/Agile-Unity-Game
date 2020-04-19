@@ -20,9 +20,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/WinScene.unity
     guid: 575dbc7ea5cd5924083d8155c9efcd1e
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/Instructions.unity
-    guid: cc2c1dcc9776de84bba7d912ec11f4e0
     path: Assets/Scenes/Riddle-1.unity
     guid: 4f10c83bb20f7054fb70cc86707e49a0
+  - enabled: 1
+    path: Assets/Scenes/Instructions.unity
+    guid: 7dcafbb8fad96ae46a8e45910ec455bb
   m_configObjects: {}

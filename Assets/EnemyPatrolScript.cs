@@ -21,10 +21,7 @@ public class EnemyPatrolScript : MonoBehaviour
     private void Moving()
     {
         speed = 3.0f;
-        if (Vector3.Distance(transform.position, player.position) > distToWalkTowards)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, new Vector3(player.position.x, player.position.y + 5, player.position.z), speed * Time.deltaTime);
-        }
+        transform.position = Vector3.MoveTowards(transform.position, new Vector3(player.position.x, player.position.y + 5, player.position.z), speed * Time.deltaTime);
 
     }
     public void LookedAt()

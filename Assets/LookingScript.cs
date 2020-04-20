@@ -28,6 +28,7 @@ public class LookingScript : MonoBehaviour
             if (enemy != null)
 
             {
+                Debug.Log("reeee");
                 enemy.LookedAt();
             }
         }

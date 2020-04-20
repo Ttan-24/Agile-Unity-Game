@@ -11,9 +11,9 @@ public class AttackPlayer : MonoBehaviour
     void Start()
     {
         //dist requires a min of 4 to work
-        if (range < 4)
+        if (range < 10)
         {
-            range = 4;
+            range = 10;
         }
 
 
@@ -23,6 +23,7 @@ public class AttackPlayer : MonoBehaviour
     void Update()
     {
         float dist = Vector3.Distance(this.transform.position, player.transform.position);
+        Debug.Log("distance " + dist);
         if (dist <= range)
         {
             //Game Over for player

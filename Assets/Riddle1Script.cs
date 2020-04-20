@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityScript.Steps;
+using System;
 
 public class Riddle1Script : MonoBehaviour
 {
@@ -25,7 +26,7 @@ public class Riddle1Script : MonoBehaviour
     [Space(10)]
     #endregion
 
-    #region Question & Controls
+    #region Question/Equation
     [Header("Question Texts (Numbers & Symbols)")]
     [SerializeField] private Text finalAnswer;
     [SerializeField] private Text num1Text;
@@ -33,6 +34,9 @@ public class Riddle1Script : MonoBehaviour
     [SerializeField] private Text num3Text;
     [SerializeField] private Text operator1; // + - / * - mathematical symbol
     [SerializeField] private Text operator2; // + - / * - mathematical symbol
+    #endregion
+
+    #region Dialogs & Controls & Scenes to Load
     [Space(10)]
     [Header("Riddle Dialog")]
     [SerializeField] private GameObject riddle1Dialog;
@@ -48,11 +52,7 @@ public class Riddle1Script : MonoBehaviour
     public string scene;
     #endregion
 
-
-    [SerializeField] private Text timerText;
-    [SerializeField] private Text keyCountText;
-
-    #region private strings
+    #region Private Variables
     private int correctAnswer;
     private string equation;
     private int chosenAnswer; //selected answer
@@ -62,26 +62,46 @@ public class Riddle1Script : MonoBehaviour
 
     int timer;
     int keyCount;
+
+    [SerializeField] private Text timerText;
+    [SerializeField] private Text keyCountText;
     #endregion
 
+    #region Start Function
     void Start()
     {
-        timer = PlayerPrefs.GetInt("timer");
-        keyCount = KeyCountScript.KeyCount;
+        timer = PlayerPrefs.GetInt("timer"); //get timer
+        keyCount = KeyCountScript.KeyCount; //get key count
 
-        if (operator1 != null && operator2 != null)
-        {
-            op1 = operator1.text;
-            op2 = operator2.text;
-        }
-       
+        string[,] equationOptions = new string[5, 5] { { "30", "-", "20", "/", "2" }, { "3", "+", "5", "x", "4" }, { "4", "/", "2", "x", "2" }, { "5", "x", "-1", "+", "-10"}, {"16", "/", "4", "-", "2" } };
+        string[,] equationAnswers = new string[5,6] { { "-20","-10", "0", "5","10","20"}, {"12", "18", "19", "23", "24", "32" }, { "0", "1", "2", "4", "6", "16"}, {"-55", "-15", "0", "5", "15", "55" }, {"-4", "-2", "1", "2", "4", "8" }  };
+        //random choice
+        System.Random rand = new System.Random();
+        int randomNumber = rand.Next(0, 4); //indexes in the array
+
+        //generate equation
+        num1Text.text = equationOptions[randomNumber, 0];
+        operator1.text = equationOptions[randomNumber, 1];
+        num2Text.text = equationOptions[randomNumber, 2];
+        operator2.text =  equationOptions[randomNumber, 3];
+        num3Text.text = equationOptions[randomNumber, 4];
+
+        //generate possible answers
+        answer1Text.text = equationAnswers[randomNumber, 0];
+        answer2Text.text = equationAnswers[randomNumber, 1];
+        answer3Text.text = equationAnswers[randomNumber, 2];
+        answer4Text.text = equationAnswers[randomNumber, 3];
+        answer5Text.text = equationAnswers[randomNumber, 4];
+        answer6Text.text = equationAnswers[randomNumber, 5];
+
         //change 'x' to multipy operator (otherwise equation won't work)
+        op1 = operator1.text;
+        op2 = operator2.text;
         if (operator1.text.ToLower() == "x") op1 = "*";
         if (operator2.text.ToLower() == "x") op2 = "*";
 
         //get equation result
         equation = num1Text.text + op1 + num2Text.text + op2 + num3Text.text;
-        Debug.Log(equation);
         correctAnswer = Evaluate(equation);
 
         //add on click listeners for each button (answer)
@@ -99,12 +119,11 @@ public class Riddle1Script : MonoBehaviour
         timerText.GetComponent<Text>().text = "Timer: " + timer;
         keyCountText.GetComponent<Text>().text = "Key Count: " + keyCount;
     }
-
+    #endregion
     void TaskOnClick(string buttonType)
     {
         if (buttonType != "submit" && buttonType != "back" && buttonType != "ok")
         {
-            
             if (buttonType == "answer1") chosenAnswer = int.Parse(answer1Text.text);
             else if (buttonType == "answer2") chosenAnswer = int.Parse(answer2Text.text);
             else if (buttonType == "answer3") chosenAnswer = int.Parse(answer3Text.text);
@@ -112,17 +131,13 @@ public class Riddle1Script : MonoBehaviour
             else if (buttonType == "answer5") chosenAnswer = int.Parse(answer5Text.text);
             else chosenAnswer = int.Parse(answer6Text.text);
 
-            finalAnswer.text = chosenAnswer.ToString();
-            Debug.Log("Chosen answer: " + chosenAnswer);
-
-            //Output this to console when Button1 or Button3 is clicked
-            Debug.Log("You have clicked the button! Type: " + buttonType + " Text: " + answer1Text.text + "Answer:" + correctAnswer);
+            finalAnswer.text = chosenAnswer.ToString(); //result chosen
         }
        else if (buttonType == "submit")
         {
             if (chosenAnswer == correctAnswer)
             {
-                //time - 10sec (bonus)
+                //time -10sec (bonus)
                 PlayerPrefs.SetInt("subtract10sec", 1); //set to true
                 timerText.GetComponent<Text>().color = Color.green;
 
@@ -133,11 +148,10 @@ public class Riddle1Script : MonoBehaviour
                 topText.text = "Correct Answer!";
                 topText.GetComponent<Text>().color = Color.green;
                 riddle1ConfirmationDialog.SetActive(true);
-
             }
             else
             {
-                //time + 10 sec (don't click if you don't know the answer)
+                //time +10 sec (don't click if you don't know the answer)
                 PlayerPrefs.SetInt("add10sec", 1); //set to true
                 timerText.GetComponent<Text>().color = Color.red;
                
@@ -152,21 +166,20 @@ public class Riddle1Script : MonoBehaviour
             timerText.GetComponent<Text>().color = Color.white;
 
             if (topText.text.ToLower().Contains("incorrect"))
-            {
+            {   //come back to the riddle
                 riddle1ConfirmationDialog.SetActive(false);
                 riddle1Dialog.SetActive(true);
             }
             else
             {
-                //come back to the previous scene
-                Debug.Log("OK. Correct");
+                //come back to the previous scene (maze)
                 Screen.lockCursor = true;
                 UnityEngine.SceneManagement.SceneManager.LoadScene(scene);
             }
         }
         else //button type == back
         {
-            //come back to previous screen
+            //come back to the previous screen
             Screen.lockCursor = false;
             UnityEngine.SceneManagement.SceneManager.LoadScene(scene);
         }

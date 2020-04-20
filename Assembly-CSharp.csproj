@@ -80,6 +80,7 @@
     <Compile Include="Assets\MovementPlayer.cs" />
     <Compile Include="Assets\RestartGame.cs" />
     <Compile Include="Assets\Riddle1Script.cs" />
+    <Compile Include="Assets\Riddle2Script.cs" />
     <Compile Include="Assets\RiddleScript.cs" />
     <Compile Include="Assets\SwitchScenes.cs" />
     <Compile Include="Assets\TimerScript.cs" />

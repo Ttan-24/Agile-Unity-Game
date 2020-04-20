@@ -26,7 +26,7 @@ public class DoorScript : MonoBehaviour
     public void Open()
     {
 
-        if (KeyCountScript.KeyCount > 0)
+        if (KeyCountText.gameObject.GetComponent<KeyCountScript>().KeyCount > 0)
         {
             if (gameExit)
             {
@@ -42,7 +42,7 @@ public class DoorScript : MonoBehaviour
             }
             else
             {
-                KeyCountScript.KeyCount--;
+                KeyCountText.gameObject.GetComponent<KeyCountScript>().KeyCount--;
                 Destroy(gameObject);
             }
         }

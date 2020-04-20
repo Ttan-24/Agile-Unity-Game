@@ -19,7 +19,7 @@ public class KeyScript : MonoBehaviour
 
     public void AddKey()
     {
-        KeyCountScript.KeyCount++;
+        KeyCountText.gameObject.GetComponent<KeyCountScript>().KeyCount++;
         Destroy(gameObject);
     }
 }

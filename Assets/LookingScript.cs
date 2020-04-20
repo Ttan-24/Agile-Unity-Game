@@ -19,6 +19,19 @@ public class LookingScript : MonoBehaviour
         mouseClicked = Input.GetMouseButtonDown(0);
         RaycastHit hit;
         Ray ray = camera.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out hit))
+        {
+            Transform hitObject = hit.transform;
+
+            EnemyPatrolScript enemy = hitObject.GetComponent<EnemyPatrolScript>();
+
+            if (enemy != null)
+
+            {
+                enemy.LookedAt();
+                Debug.Log("Move");
+            }
+        }
 
         if (mouseClicked == true)
         {
@@ -54,23 +67,6 @@ public class LookingScript : MonoBehaviour
             }
 
 
-        }
-        else
-        {
-            if (Physics.Raycast(ray, out hit))
-            {
-                Transform hitObject = hit.transform;
-
-                EnemyPatrolScript enemy = hitObject.GetComponent<EnemyPatrolScript>();
-
-                if (enemy != null)
-
-                {
-
-                    enemy.LookedAt();
-
-                }
-            }
         }
     }
 }

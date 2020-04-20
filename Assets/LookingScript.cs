@@ -10,6 +10,12 @@ public class LookingScript : MonoBehaviour
 
     [Header("Scenes To Load")]
     public string riddle1;
+<<<<<<< HEAD
+=======
+
+    private static int timer; //use timer from another script
+    private static int keyCount; //use keyCount from another script
+>>>>>>> parent of 640db5e... Riddle 2 done - box visible
 
     // Start is called before the first frame update
     void Start()

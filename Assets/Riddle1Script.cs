@@ -23,6 +23,9 @@ public class Riddle1Script : MonoBehaviour
     [SerializeField] private Text answer5Text;
     [SerializeField] private Text answer6Text;
     [Space(10)]
+    #endregion
+
+    #region Question & Controls
     [Header("Question Texts (Numbers & Symbols)")]
     [SerializeField] private Text finalAnswer;
     [SerializeField] private Text num1Text;
@@ -31,29 +34,53 @@ public class Riddle1Script : MonoBehaviour
     [SerializeField] private Text operator1; // + - / * - mathematical symbol
     [SerializeField] private Text operator2; // + - / * - mathematical symbol
     [Space(10)]
-    [Header("Control Buttons")]
+    [Header("Riddle Dialog")]
+    [SerializeField] private GameObject riddle1Dialog;
     [SerializeField] private Button submitBtn;
+    [Space(10)]
+    [Header("Confirmation Dialog")]
+    [SerializeField] private GameObject riddle1ConfirmationDialog;
+    [SerializeField] private Text topText;
     [SerializeField] private Button backBtn;
     [SerializeField] private Button okBtn;
+    [Space(10)]
+    [Header("Scenes To Load")]
+    public string scene;
+    #endregion
 
 
-    [SerializeField] private Text topText;
-    [SerializeField] private GameObject riddle1Dialog;
-    [SerializeField] private GameObject riddle1ConfirmationDialog;
+    [SerializeField] private Text timerText;
+    [SerializeField] private Text keyCountText;
 
+    #region private strings
     private int correctAnswer;
     private string equation;
     private int chosenAnswer; //selected answer
 
+    private string op1; //operator 1 (converted)
+    private string op2; //operator 2 (converted)
+
+    int timer;
+    int keyCount;
     #endregion
+
     void Start()
     {
+        timer = PlayerPrefs.GetInt("timer");
+        keyCount = KeyCountScript.KeyCount;
+
+        if (operator1 != null && operator2 != null)
+        {
+            op1 = operator1.text;
+            op2 = operator2.text;
+        }
+       
         //change 'x' to multipy operator (otherwise equation won't work)
-        if (operator1.text.ToLower() == "x") operator1.text = "*";
-        if (operator2.text.ToLower() == "x") operator2.text = "*";
+        if (operator1.text.ToLower() == "x") op1 = "*";
+        if (operator2.text.ToLower() == "x") op2 = "*";
 
         //get equation result
-        equation = num1Text.text + operator1.text + num2Text.text + operator2.text + num3Text.text;
+        equation = num1Text.text + op1 + num2Text.text + op2 + num3Text.text;
         Debug.Log(equation);
         correctAnswer = Evaluate(equation);
 
@@ -66,6 +93,11 @@ public class Riddle1Script : MonoBehaviour
         answer6Btn.onClick.AddListener(() => TaskOnClick("answer6"));
         submitBtn.onClick.AddListener(() => TaskOnClick("submit"));
         okBtn.onClick.AddListener(() => TaskOnClick("ok"));
+        backBtn.onClick.AddListener(() => TaskOnClick("back"));
+
+        //display time && key count
+        timerText.GetComponent<Text>().text = "Timer: " + timer;
+        keyCountText.GetComponent<Text>().text = "Key Count: " + keyCount;
     }
 
     void TaskOnClick(string buttonType)
@@ -90,7 +122,13 @@ public class Riddle1Script : MonoBehaviour
         {
             if (chosenAnswer == correctAnswer)
             {
-                Debug.Log("Congrats. Good Answer.");
+                //time - 10sec (bonus)
+                PlayerPrefs.SetInt("subtract10sec", 1); //set to true
+                timerText.GetComponent<Text>().color = Color.green;
+
+                //increse number of keys
+                KeyCountScript.KeyCount++;
+
                 riddle1Dialog.SetActive(false);
                 topText.text = "Correct Answer!";
                 topText.GetComponent<Text>().color = Color.green;
@@ -99,7 +137,10 @@ public class Riddle1Script : MonoBehaviour
             }
             else
             {
-                Debug.Log("Bad Luck");
+                //time + 10 sec (don't click if you don't know the answer)
+                PlayerPrefs.SetInt("add10sec", 1); //set to true
+                timerText.GetComponent<Text>().color = Color.red;
+               
                 riddle1Dialog.SetActive(false);
                 topText.text = "Incorrect Answer!";
                 topText.GetComponent<Text>().color = Color.red;
@@ -108,27 +149,29 @@ public class Riddle1Script : MonoBehaviour
         }
         else if (buttonType == "ok")
         {
+            timerText.GetComponent<Text>().color = Color.white;
+
             if (topText.text.ToLower().Contains("incorrect"))
             {
                 riddle1ConfirmationDialog.SetActive(false);
                 riddle1Dialog.SetActive(true);
-                //time + 10 sec (don't click if you don't know the answer)
             }
             else
             {
-                //increse number of keys
-
-                //time - 5sec
-
                 //come back to the previous scene
                 Debug.Log("OK. Correct");
                 Screen.lockCursor = true;
                 UnityEngine.SceneManagement.SceneManager.LoadScene(scene);
             }
         }
+        else //button type == back
+        {
+            //come back to previous screen
+            Screen.lockCursor = false;
+            UnityEngine.SceneManagement.SceneManager.LoadScene(scene);
+        }
     }
 
-  
     //Evaluate() function source: https://stackoverflow.com/questions/6052640/is-there-an-eval-function-in-c
     public static int Evaluate(string expression)
     {

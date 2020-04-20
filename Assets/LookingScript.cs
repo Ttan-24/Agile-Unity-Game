@@ -11,6 +11,9 @@ public class LookingScript : MonoBehaviour
     [Header("Scenes To Load")]
     public string riddle1;
 
+    private static int timer; //use timer from another script
+    private static int keyCount; //use keyCount from another script
+
     // Start is called before the first frame update
     void Start()
     {
@@ -56,7 +59,12 @@ public class LookingScript : MonoBehaviour
                         //open scene
                         //riddleScript.OpenScene();
                         Debug.Log("opened");
+                        //Cursor.visible = false;
                         Screen.lockCursor = false;
+                        timer = TimerScript.timer;
+                        PlayerPrefs.SetInt("timer", timer); //save time and "send" to riddle script
+                        keyCount = KeyCountScript.KeyCount;
+                        PlayerPrefs.SetInt("timer", timer); //save time and "send" to riddle script
                         SceneManager.LoadScene(riddle1);
                     }
                 }

@@ -12,55 +12,7 @@ public class EnemyPatrolScript : MonoBehaviour
     public float startWaitTime = 1.0f;
     public string walkMode;
 
-    public bool shouldBeLookedAtToMove;
-    private bool lookedAt = false;
-
     // Start is called before the first frame update
-
-    private void Moving()
-    {
-        speed = 3.0f;
-        if (Vector3.Distance(transform.position, player.position) > 10.0f)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, new Vector3(player.position.x, player.position.y + 5, player.position.z), speed * Time.deltaTime);
-        }
-        
-    }
-    public void LookedAt()
-    {
-        lookedAt = true;
-    }
-    private void MovingCondition()
-    {
-        if (lookedAt)
-        {
-            if (shouldBeLookedAtToMove)
-            {
-                //move
-                Moving();
-            }
-            else
-            {
-                //don't move
-            }
-
-        }
-        else
-        {
-            if (shouldBeLookedAtToMove)
-            //regular actions
-            {
-                //don't move
-            }
-            else
-            {
-                Moving();
-                //move
-            }
-        }
-        lookedAt = false;
-
-    }
     void Start()
     {
         randomSpot = Random.Range(0, moveSpots.Length - 1);
@@ -100,7 +52,11 @@ public class EnemyPatrolScript : MonoBehaviour
         }
         else if (walkMode == "attack")
         {
-            MovingCondition();
+            speed = 3.0f;
+            if (Vector3.Distance(transform.position, player.position) > 5.0f)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, new Vector3(player.position.x, player.position.y + 5, player.position.z), speed * Time.deltaTime);
+            }
         }
     }
 }

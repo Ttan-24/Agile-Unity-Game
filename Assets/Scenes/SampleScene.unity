@@ -4628,8 +4628,8 @@ MonoBehaviour:
   player: {fileID: 58529773}
   startWaitTime: 1
   walkMode: patrol
-  shouldBeLookedAtToMove: 1
-  distToWalkTowards: 20
+  shouldBeLookedAtToMove: 0
+  distToWalkTowards: 30
 --- !u!136 &815693857
 CapsuleCollider:
   m_ObjectHideFlags: 0

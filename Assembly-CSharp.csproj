@@ -69,7 +69,6 @@
     <Compile Include="Assets\EnemyFollowMovement.cs" />
     <Compile Include="Assets\EnemyPatrolScript.cs" />
     <Compile Include="Assets\HealthEnemy.cs" />
-    <Compile Include="Assets\InstructionsSwitchScene.cs" />
     <Compile Include="Assets\KeyCountScript.cs" />
     <Compile Include="Assets\KeyScript.cs" />
     <Compile Include="Assets\LookingScript.cs" />

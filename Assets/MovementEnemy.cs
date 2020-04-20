@@ -46,6 +46,7 @@ public class MovementEnemy : MonoBehaviour
         else
         {
             if (shouldBeLookedAtToMove)
+            //regular actions
             {
                 //don't move
             }
@@ -56,7 +57,8 @@ public class MovementEnemy : MonoBehaviour
             }
         }
         lookedAt = false;
-        Debug.Log("Reset");
+
+
 
     }
     // Update is called once per frame

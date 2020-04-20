@@ -16,7 +16,6 @@ public class AttackPlayer : MonoBehaviour
             range = 10;
         }
 
-
     }
 
     // Update is called once per frame

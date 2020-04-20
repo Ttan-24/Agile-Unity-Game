@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyPatrolScript : MonoBehaviour
 {
-    public float speed = 5.0f;
+    public float speed;
     public Transform[] moveSpots;
     private int randomSpot;
     private float waitTime;
@@ -20,14 +20,14 @@ public class EnemyPatrolScript : MonoBehaviour
 
     private void Moving()
     {
-        speed = 3.0f;
         transform.position = Vector3.MoveTowards(transform.position, new Vector3(player.position.x, player.position.y + 5, player.position.z), speed * Time.deltaTime);
-
     }
+
     public void LookedAt()
     {
         lookedAt = true;
     }
+
     private void MovingCondition()
     {
         if (lookedAt)
@@ -59,43 +59,45 @@ public class EnemyPatrolScript : MonoBehaviour
         lookedAt = false;
 
     }
+
     void Start()
     {
         randomSpot = Random.Range(0, moveSpots.Length - 1);
     }
         
-        void Update()
+    void Update()
+    {
+        if (Vector3.Distance(transform.position, player.position) < distToWalkTowards)
         {
-            if (Vector3.Distance(transform.position, player.position) < distToWalkTowards)
-            {
-                walkMode = "attack";
-            }
-            else
-            {
-                walkMode = "patrol";
-            }
-            if (walkMode == "patrol")
-            {
-                speed = 5.0f;
+            walkMode = "attack";
+        }
+        else
+        {
+            walkMode = "patrol";
+        }
 
-                transform.position = Vector3.MoveTowards(transform.position, moveSpots[randomSpot].position, speed * Time.deltaTime);
+        if (walkMode == "patrol")
+        {
+            speed = 5.0f;
 
-                if (Vector3.Distance(transform.position, moveSpots[randomSpot].position) < 0.2f)
+            transform.position = Vector3.MoveTowards(transform.position, moveSpots[randomSpot].position, speed * Time.deltaTime);
+
+            if (Vector3.Distance(transform.position, moveSpots[randomSpot].position) < 0.2f)
+            {
+                if (waitTime <= 0)
                 {
-                    if (waitTime <= 0)
-                    {
-                        randomSpot = Random.Range(0, moveSpots.Length - 1);
-                        waitTime = startWaitTime;
-                    }
-                    else
-                    {
-                        waitTime -= Time.deltaTime;
-                    }
+                    randomSpot = Random.Range(0, moveSpots.Length - 1);
+                    waitTime = startWaitTime;
+                }
+                else
+                {
+                    waitTime -= Time.deltaTime;
                 }
             }
-            else if (walkMode == "attack")
-            {
-                MovingCondition();
-            }
         }
+        else if (walkMode == "attack")
+        {
+            MovingCondition();
+        }
+    }
 }

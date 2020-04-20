@@ -10,7 +10,7 @@ public class LookingScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -53,22 +53,23 @@ public class LookingScript : MonoBehaviour
                 // Do something with the object that was hit by the raycast.
             }
 
-            
+
         }
         else
         {
             if (Physics.Raycast(ray, out hit))
             {
-                Transform Enemy = hit.transform;
-                try
-                {
-                    Enemy.gameObject.GetComponent<MovementEnemy>().LookedAt();
-                }
-                catch (System.Exception)
+                Transform hitObject = hit.transform;
+
+                EnemyPatrolScript enemy = hitObject.GetComponent<EnemyPatrolScript>();
+
+                if (enemy != null)
+
                 {
 
-                }
+                    enemy.LookedAt();
 
+                }
             }
         }
     }

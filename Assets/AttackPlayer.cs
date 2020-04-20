@@ -11,9 +11,9 @@ public class AttackPlayer : MonoBehaviour
     void Start()
     {
         //dist requires a min of 4 to work
-        if (range < 4)
+        if (range < 10)
         {
-            range = 4;
+            range = 10;
         }
 
 

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class KeyCountScript : MonoBehaviour
 {
-    public static int KeyCount;
+    public int KeyCount;
     // Start is called before the first frame update
     void Start()
     {

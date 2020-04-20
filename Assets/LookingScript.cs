@@ -29,7 +29,6 @@ public class LookingScript : MonoBehaviour
 
             {
                 enemy.LookedAt();
-                Debug.Log("Move");
             }
         }
 

@@ -22,6 +22,7 @@ public class EnemyPatrolScript : MonoBehaviour
         speed = 3.0f;
         if (Vector3.Distance(transform.position, player.position) > 10.0f)
         {
+            Debug.Log("Move to player");
             transform.position = Vector3.MoveTowards(transform.position, new Vector3(player.position.x, player.position.y + 5, player.position.z), speed * Time.deltaTime);
         }
 
@@ -64,6 +65,8 @@ public class EnemyPatrolScript : MonoBehaviour
     void Start()
     {
         randomSpot = Random.Range(0, moveSpots.Length - 1);
+    }
+        
         void Update()
         {
             if (Vector3.Distance(transform.position, player.position) < 20.0f)
@@ -77,6 +80,7 @@ public class EnemyPatrolScript : MonoBehaviour
             if (walkMode == "patrol")
             {
                 speed = 5.0f;
+                Debug.Log("Move");
 
                 transform.position = Vector3.MoveTowards(transform.position, moveSpots[randomSpot].position, speed * Time.deltaTime);
 
@@ -98,5 +102,4 @@ public class EnemyPatrolScript : MonoBehaviour
                 MovingCondition();
             }
         }
-    }
 }

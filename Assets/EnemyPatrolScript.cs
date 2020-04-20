@@ -66,7 +66,7 @@ public class EnemyPatrolScript : MonoBehaviour
         
         void Update()
         {
-            if (Vector3.Distance(transform.position, player.position) < 20.0f)
+            if (Vector3.Distance(transform.position, player.position) < distToWalkTowards)
             {
                 walkMode = "attack";
             }

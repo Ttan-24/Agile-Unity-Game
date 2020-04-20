@@ -4627,7 +4627,7 @@ MonoBehaviour:
   - {fileID: 584891849}
   player: {fileID: 58529773}
   startWaitTime: 1
-  walkMode: 
+  walkMode: patrol
   shouldBeLookedAtToMove: 0
 --- !u!136 &815693857
 CapsuleCollider:

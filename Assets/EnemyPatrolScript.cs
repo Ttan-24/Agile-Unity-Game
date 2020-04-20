@@ -15,12 +15,13 @@ public class EnemyPatrolScript : MonoBehaviour
     public bool shouldBeLookedAtToMove;
     private bool lookedAt = false;
 
+    public float distToWalkTowards;
     // Start is called before the first frame update
 
     private void Moving()
     {
         speed = 3.0f;
-        if (Vector3.Distance(transform.position, player.position) > 10.0f)
+        if (Vector3.Distance(transform.position, player.position) > distToWalkTowards)
         {
             transform.position = Vector3.MoveTowards(transform.position, new Vector3(player.position.x, player.position.y + 5, player.position.z), speed * Time.deltaTime);
         }

@@ -4629,6 +4629,7 @@ MonoBehaviour:
   startWaitTime: 1
   walkMode: patrol
   shouldBeLookedAtToMove: 0
+  distToWalkTowards: 20
 --- !u!136 &815693857
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -11067,6 +11068,7 @@ MonoBehaviour:
   startWaitTime: 1
   walkMode: 
   shouldBeLookedAtToMove: 0
+  distToWalkTowards: 0
 --- !u!114 &7073360483110936913
 MonoBehaviour:
   m_ObjectHideFlags: 0

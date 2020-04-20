@@ -9,7 +9,7 @@ public class Riddle2Script : MonoBehaviour
 {
     #region Answers
     [Header("Questions & Answer")]
-    [SerializeField] private Input answerInput;
+    [SerializeField] private GameObject answerInput;
     [SerializeField] private Text QuestionText;
     [Space(10)]
     #endregion
@@ -32,6 +32,7 @@ public class Riddle2Script : MonoBehaviour
 
     #region Private Variables
     private string correctAnswer;
+    private string answer;
 
     int timer;
     int keyCount;
@@ -46,6 +47,7 @@ public class Riddle2Script : MonoBehaviour
         timer = PlayerPrefs.GetInt("timer"); //get timer
         keyCount = KeyCountScript.KeyCount; //get key count
 
+        Debug.Log("has stasted");
         string[,] riddleOptions = new string[10, 2] { 
             { "What is full of holes but still holds water?", "sponge" }, 
             { "What becomes wetter the more it dries?", "towel"},
@@ -78,10 +80,12 @@ public class Riddle2Script : MonoBehaviour
     #endregion
     void TaskOnClick(string buttonType)
     {
-       if (buttonType == "submit")
+        if (buttonType == "submit")
         {
-            if (answerInput.ToString().ToLower().Contains(correctAnswer))
+            answer = answerInput.GetComponent<InputField>().text.ToString();
+            if (answer.ToLower().Contains(correctAnswer))
             {
+                Debug.Log("subsubsub: " + buttonType);
                 //time -10sec (bonus)
                 PlayerPrefs.SetInt("subtract10sec", 1); //set to true
                 timerText.GetComponent<Text>().color = Color.green;

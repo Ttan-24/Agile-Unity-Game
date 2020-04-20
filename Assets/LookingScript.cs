@@ -10,12 +10,10 @@ public class LookingScript : MonoBehaviour
 
     [Header("Scenes To Load")]
     public string riddle1;
-<<<<<<< HEAD
-=======
+    public string riddle2;
 
     private static int timer; //use timer from another script
     private static int keyCount; //use keyCount from another script
->>>>>>> parent of 640db5e... Riddle 2 done - box visible
 
     // Start is called before the first frame update
     void Start()
@@ -30,16 +28,6 @@ public class LookingScript : MonoBehaviour
         RaycastHit hit;
         Ray ray = camera.ScreenPointToRay(Input.mousePosition);
 
-        if (Physics.Raycast(ray, out hit))
-        {
-            Transform hitObject = hit.transform;
-            EnemyPatrolScript enemy = hitObject.GetComponent<EnemyPatrolScript>();
-            if (enemy != null)
-            {
-                enemy.LookedAt();
-            }
-        }
-
         if (mouseClicked == true)
         {
             if (Physics.Raycast(ray, out hit))
@@ -49,7 +37,8 @@ public class LookingScript : MonoBehaviour
                 DoorScript doorScript = hitObject.GetComponent<DoorScript>();
                 KeyScript keyScript = hitObject.GetComponent<KeyScript>();
                 HealthEnemy healthScript = hitObject.GetComponent<HealthEnemy>();
-                Riddle1Script riddleScript = hitObject.GetComponent<Riddle1Script>();
+                Riddle1Script riddle1Script = hitObject.GetComponent<Riddle1Script>();
+                Riddle2Script riddle2Script = hitObject.GetComponent<Riddle2Script>();
 
                 float distance = hit.distance;
                 Debug.Log("Distance from " + hitObject.gameObject.name + ": " + distance);
@@ -67,13 +56,31 @@ public class LookingScript : MonoBehaviour
                     {
                         healthScript.health_of_enemy--;
                     }
-                    if (riddleScript != null)
+                    if (riddle1Script != null)
                     {
                         //open scene
                         //riddleScript.OpenScene();
                         Debug.Log("opened");
+                        //Cursor.visible = false;
                         Screen.lockCursor = false;
+                        timer = TimerScript.timer;
+                        PlayerPrefs.SetInt("timer", timer); //save time and "send" to riddle script
+                        keyCount = KeyCountScript.KeyCount;
+                        PlayerPrefs.SetInt("timer", timer); //save time and "send" to riddle script
                         SceneManager.LoadScene(riddle1);
+                    }
+                    if (riddle2Script != null)
+                    {
+                        //open scene
+                        //riddleScript.OpenScene();
+                        Debug.Log("opened riddle 2");
+                        //Cursor.visible = false;
+                        Screen.lockCursor = false;
+                        timer = TimerScript.timer;
+                        PlayerPrefs.SetInt("timer", timer); //save time and "send" to riddle script
+                        keyCount = KeyCountScript.KeyCount;
+                        PlayerPrefs.SetInt("timer", timer); //save time and "send" to riddle script
+                        SceneManager.LoadScene(riddle2);
                     }
                 }
 
@@ -83,6 +90,22 @@ public class LookingScript : MonoBehaviour
             }
 
             
+        }
+        else
+        {
+            if (Physics.Raycast(ray, out hit))
+            {
+                Transform Enemy = hit.transform;
+                try
+                {
+                    Enemy.gameObject.GetComponent<MovementEnemy>().LookedAt();
+                }
+                catch (System.Exception)
+                {
+
+                }
+
+            }
         }
     }
 }

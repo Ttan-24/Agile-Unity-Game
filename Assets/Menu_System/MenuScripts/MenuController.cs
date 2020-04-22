@@ -280,7 +280,7 @@ public class MenuController : MonoBehaviour
     public void BrightnessApply()
     {
         PlayerPrefs.SetFloat("masterBrightness", brightnessEffect.brightness);
-        Debug.Log(PlayerPrefs.GetFloat("masterBrightness"));
+        Debug.Log("Brightness" + " " + PlayerPrefs.GetFloat("masterBrightness"));
         StartCoroutine(ConfirmationBox());
     }
     #endregion

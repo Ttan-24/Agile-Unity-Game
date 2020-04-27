@@ -34,7 +34,7 @@ public class MenuController : MonoBehaviour
     [SerializeField] private GameObject graphicsMenu;
     [SerializeField] private GameObject soundMenu;
     [SerializeField] private GameObject gameplayMenu;
-    [SerializeField] private GameObject controlsMenu;
+    [SerializeField] private GameObject instructionMenu;
     [SerializeField] private GameObject confirmationMenu;
     [Space(10)]
     [Header("High Score Fields")]
@@ -65,8 +65,6 @@ public class MenuController : MonoBehaviour
     [Space(10)]
     [SerializeField] private Text selectText;
     [SerializeField] private UnityEngine.UI.Image mousePointerIcon;
-    [SerializeField] private Text cancelText;
-    [SerializeField] private UnityEngine.UI.Image escKeyIcon;
     #endregion
 
     #region High Score Entries
@@ -126,10 +124,10 @@ public class MenuController : MonoBehaviour
     #region Menu Mouse Clicks
     public void  MouseClick(string buttonType)
     {
-        if (buttonType == "Controls")
+        if (buttonType == "Instruction")
         {
             gameplayMenu.SetActive(false);
-            controlsMenu.SetActive(true);
+            instructionMenu.SetActive(true);
 
             menuNumber = 6;
         }
@@ -140,8 +138,6 @@ public class MenuController : MonoBehaviour
             graphicsMenu.SetActive(true);
             selectText.gameObject.SetActive(false);
             mousePointerIcon.gameObject.SetActive(false);
-            cancelText.gameObject.SetActive(false);
-            escKeyIcon.gameObject.SetActive(false);
             menuNumber = 3;
         }
 
@@ -151,8 +147,6 @@ public class MenuController : MonoBehaviour
             soundMenu.SetActive(true);
             selectText.gameObject.SetActive(false);
             mousePointerIcon.gameObject.SetActive(false);
-            cancelText.gameObject.SetActive(false);
-            escKeyIcon.gameObject.SetActive(false);
             menuNumber = 4;
         }
 
@@ -162,8 +156,6 @@ public class MenuController : MonoBehaviour
             gameplayMenu.SetActive(true);
             selectText.gameObject.SetActive(false);
             mousePointerIcon.gameObject.SetActive(false);
-            cancelText.gameObject.SetActive(false);
-            escKeyIcon.gameObject.SetActive(false);
             menuNumber = 5;
         }
 
@@ -186,8 +178,6 @@ public class MenuController : MonoBehaviour
             highScoreGameDialog.SetActive(true);
             selectText.gameObject.SetActive(false);
             mousePointerIcon.gameObject.SetActive(false);
-            cancelText.gameObject.SetActive(false);
-            escKeyIcon.gameObject.SetActive(false);
             menuNumber = 8;
 
             //Add players to leaderboard from the file
@@ -219,8 +209,6 @@ public class MenuController : MonoBehaviour
             newGameDialog.SetActive(true);
             selectText.gameObject.SetActive(false);
             mousePointerIcon.gameObject.SetActive(false);
-            cancelText.gameObject.SetActive(false);
-            escKeyIcon.gameObject.SetActive(false);
             menuNumber = 7;
         }
     }
@@ -424,8 +412,6 @@ public class MenuController : MonoBehaviour
         gameplayMenu.SetActive(false);
         selectText.gameObject.SetActive(true);
         mousePointerIcon.gameObject.SetActive(true);
-        cancelText.gameObject.SetActive(true);
-        escKeyIcon.gameObject.SetActive(true);
 
         GameplayApply();
         BrightnessApply();
@@ -439,8 +425,6 @@ public class MenuController : MonoBehaviour
         menuDefaultCanvas.SetActive(true);
         selectText.gameObject.SetActive(true);
         mousePointerIcon.gameObject.SetActive(true);
-        cancelText.gameObject.SetActive(true);
-        escKeyIcon.gameObject.SetActive(true);
         newGameDialog.SetActive(false);
         highScoreGameDialog.SetActive(false);
         GeneralSettingsCanvas.SetActive(false);
@@ -452,7 +436,7 @@ public class MenuController : MonoBehaviour
 
     public void GoBackToGameplayMenu()
     {
-        controlsMenu.SetActive(false);
+        instructionMenu.SetActive(false);
         gameplayMenu.SetActive(true);
         menuNumber = 5;
     }

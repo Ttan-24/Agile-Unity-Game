@@ -324,6 +324,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1102604544733868, guid: ed022c6eaaa372f498c83d69665e2adc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1176898299425854, guid: ed022c6eaaa372f498c83d69665e2adc, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -376,13 +380,25 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1607378201131584, guid: ed022c6eaaa372f498c83d69665e2adc, type: 3}
+      propertyPath: m_Name
+      value: InstructionMenu_UI_Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 1619794282622920, guid: ed022c6eaaa372f498c83d69665e2adc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1859094110586920, guid: ed022c6eaaa372f498c83d69665e2adc, type: 3}
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 1889607586039040, guid: ed022c6eaaa372f498c83d69665e2adc, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1893276015165478, guid: ed022c6eaaa372f498c83d69665e2adc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1939101664952978, guid: ed022c6eaaa372f498c83d69665e2adc, type: 3}
       propertyPath: m_IsActive
@@ -545,6 +561,18 @@ PrefabInstance:
         type: 3}
       propertyPath: m_FontData.m_FontSize
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 114186703523827612, guid: ed022c6eaaa372f498c83d69665e2adc,
+        type: 3}
+      propertyPath: m_Text
+      value: 'Instruction >>
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 114190828022327494, guid: ed022c6eaaa372f498c83d69665e2adc,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Instruction
       objectReference: {fileID: 0}
     - target: {fileID: 114208139526314110, guid: ed022c6eaaa372f498c83d69665e2adc,
         type: 3}
@@ -1034,6 +1062,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 63
+      objectReference: {fileID: 0}
+    - target: {fileID: 224016777214724232, guid: ed022c6eaaa372f498c83d69665e2adc,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 290
       objectReference: {fileID: 0}
     - target: {fileID: 224022278957109554, guid: ed022c6eaaa372f498c83d69665e2adc,
         type: 3}

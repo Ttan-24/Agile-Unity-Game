@@ -3636,15 +3636,19 @@ MonoBehaviour:
   defaultSen: 4
   defaultInvertY: 0
   menuNumber: 0
+  maze: 
   menuDefaultCanvas: {fileID: 1939101664952978}
   GeneralSettingsCanvas: {fileID: 1053070176235954}
   graphicsMenu: {fileID: 1181362766895746}
   soundMenu: {fileID: 1579993891502314}
   gameplayMenu: {fileID: 1439258321415800}
-  controlsMenu: {fileID: 1607287232231484}
+  instructionMenu: {fileID: 0}
   confirmationMenu: {fileID: 1706612065132982}
   newGameDialog: {fileID: 1889607586039040}
   highScoreGameDialog: {fileID: 0}
+  inputUsername: {fileID: 0}
+  usernameWarning: {fileID: 0}
+  username: 
   controllerSenText: {fileID: 114036040233595794}
   controllerSenSlider: {fileID: 114866046668010596}
   controlSenFloat: 4
@@ -3654,6 +3658,10 @@ MonoBehaviour:
   volumeText: {fileID: 114662438807354912}
   volumeSlider: {fileID: 114272391833239024}
   invertYToggle: {fileID: 114897183776236306}
+  selectText: {fileID: 0}
+  mousePointerIcon: {fileID: 0}
+  entryContainer: {fileID: 0}
+  entryTemplate: {fileID: 0}
 --- !u!1 &1439258321415800
 GameObject:
   m_ObjectHideFlags: 0

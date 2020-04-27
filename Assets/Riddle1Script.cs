@@ -7,6 +7,13 @@ using System;
 
 public class Riddle1Script : MonoBehaviour
 {
+
+    #region Elements
+    [SerializeField] private GameObject mazeElements;
+    [SerializeField] private GameObject riddle1Elements;
+    [SerializeField] private GameObject riddle1Box;
+    #endregion
+
     #region Answers
     [Header("Answer Buttons")]
     [SerializeField] private Button answer1Btn;
@@ -47,9 +54,6 @@ public class Riddle1Script : MonoBehaviour
     [SerializeField] private Text topText;
     [SerializeField] private Button backBtn;
     [SerializeField] private Button okBtn;
-    [Space(10)]
-    [Header("Scenes To Load")]
-    public string scene;
     #endregion
 
     #region Private Variables
@@ -174,14 +178,17 @@ public class Riddle1Script : MonoBehaviour
             {
                 //come back to the previous scene (maze)
                 Screen.lockCursor = true;
-                UnityEngine.SceneManagement.SceneManager.LoadScene(scene);
+                mazeElements.SetActive(true);
+                riddle1Elements.SetActive(false);
+                Destroy(riddle1Box);
             }
         }
         else //button type == back
         {
             //come back to the previous screen
             Screen.lockCursor = false;
-            UnityEngine.SceneManagement.SceneManager.LoadScene(scene);
+            mazeElements.SetActive(true);
+            riddle1Elements.SetActive(false);
         }
     }
 

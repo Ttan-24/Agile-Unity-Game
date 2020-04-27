@@ -7,6 +7,13 @@ using System;
 
 public class Riddle2Script : MonoBehaviour
 {
+
+    #region Elements
+    [SerializeField] private GameObject mazeElements;
+    [SerializeField] private GameObject riddle2Elements;
+    [SerializeField] private GameObject riddle2Box;
+    #endregion
+
     #region Answers
     [Header("Questions & Answer")]
     [SerializeField] private GameObject answerInput;
@@ -119,14 +126,20 @@ public class Riddle2Script : MonoBehaviour
             {
                 //come back to the previous scene (maze)
                 Screen.lockCursor = true;
-                UnityEngine.SceneManagement.SceneManager.LoadScene(scene);
+                //UnityEngine.SceneManagement.SceneManager.LoadScene(scene);
+                mazeElements.SetActive(true);
+                riddle2Elements.SetActive(false);
+                Destroy(riddle2Box);
             }
         }
         else //button type == back
         {
             //come back to the previous screen
             Screen.lockCursor = false;
-            UnityEngine.SceneManagement.SceneManager.LoadScene(scene);
+            //UnityEngine.SceneManagement.SceneManager.LoadScene(scene);
+            mazeElements.SetActive(true);
+            riddle2Elements.SetActive(false);
+            
         }
     }
 }

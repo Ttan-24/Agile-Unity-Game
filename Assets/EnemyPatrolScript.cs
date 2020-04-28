@@ -4,35 +4,100 @@ using UnityEngine;
 
 public class EnemyPatrolScript : MonoBehaviour
 {
-    public float speed = 5.0f;
+    public float speed;
     public Transform[] moveSpots;
     private int randomSpot;
     private float waitTime;
-    public float startWaitTime = 3.0f;
+    public Transform player;
+    public float startWaitTime = 1.0f;
+    public string walkMode;
 
+    public bool shouldBeLookedAtToMove;
+    private bool lookedAt = false;
+
+    public float distToWalkTowards;
     // Start is called before the first frame update
-    void Start()
+
+    private void Moving()
     {
-        randomSpot = Random.Range(0, moveSpots.Length - 1);
-        waitTime = startWaitTime;
+        transform.position = Vector3.MoveTowards(transform.position, new Vector3(player.position.x, player.position.y + 5, player.position.z), speed * Time.deltaTime);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void LookedAt()
     {
-        transform.position = Vector3.MoveTowards(transform.position, moveSpots[randomSpot].position, speed * Time.deltaTime);
+        lookedAt = true;
+    }
 
-        if (Vector3.Distance(transform.position, moveSpots[randomSpot].position) < 0.2f)
+    private void MovingCondition()
+    {
+        if (lookedAt)
         {
-            if (waitTime <= 0)
+            if (shouldBeLookedAtToMove)
             {
-                randomSpot = Random.Range(0, moveSpots.Length - 1);
-                waitTime = startWaitTime;
+                //move
+                Moving();
             }
             else
             {
-                waitTime -= Time.deltaTime;
+                //don't move
             }
+
+        }
+        else
+        {
+            if (shouldBeLookedAtToMove)
+            //regular actions
+            {
+                //don't move
+            }
+            else
+            {
+                Moving();
+                //move
+            }
+        }
+        lookedAt = false;
+
+    }
+
+    void Start()
+    {
+        randomSpot = Random.Range(0, moveSpots.Length - 1);
+    }
+        
+    void Update()
+    {
+        if (Vector3.Distance(transform.position, player.position) < distToWalkTowards)
+        {
+            walkMode = "attack";
+        }
+        else
+        {
+            walkMode = "patrol";
+        }
+
+        if (walkMode == "patrol")
+        {
+            speed = 5.0f;
+
+            transform.position = Vector3.MoveTowards(transform.position, moveSpots[randomSpot].position, speed * Time.deltaTime);
+
+            if (Vector3.Distance(transform.position, moveSpots[randomSpot].position) < 0.2f)
+            {
+                if (waitTime <= 0)
+                {
+                    randomSpot = Random.Range(0, moveSpots.Length - 1);
+                    waitTime = startWaitTime;
+                }
+                else
+                {
+                    waitTime -= Time.deltaTime;
+                }
+            }
+        }
+        else if (walkMode == "attack")
+        {
+            MovingCondition();
         }
     }
 }

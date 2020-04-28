@@ -63,11 +63,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\AttackPlayer.cs" />
     <Compile Include="Assets\CameraController.cs" />
     <Compile Include="Assets\DoorScript.cs" />
     <Compile Include="Assets\EnemyFollowMovement.cs" />
     <Compile Include="Assets\EnemyPatrolScript.cs" />
     <Compile Include="Assets\HealthEnemy.cs" />
+    <Compile Include="Assets\InstructionsSwitchScene.cs" />
     <Compile Include="Assets\KeyCountScript.cs" />
     <Compile Include="Assets\KeyScript.cs" />
     <Compile Include="Assets\LookingScript.cs" />
@@ -76,11 +78,12 @@
     <Compile Include="Assets\Menu_System\MenuScripts\MenuController.cs" />
     <Compile Include="Assets\MovementEnemy.cs" />
     <Compile Include="Assets\MovementPlayer.cs" />
+    <Compile Include="Assets\RestartGame.cs" />
     <Compile Include="Assets\SwitchScenes.cs" />
     <Compile Include="Assets\TimerScript.cs" />
     <Compile Include="Assets\UsernameScript.cs" />
+    <None Include="Assets\leaderboard.txt" />
     <None Include="Assets\Menu_System\GUI Elements\UI_BrightnessShader\BrightnessEffect.shader" />
-    <None Include="Assets\Menu_System\leaderboard.txt" />
     <None Include="Assets\Models\Tim's Assets\Doors\Shader\BloodyDoor.shader" />
     <None Include="Assets\Menu_System\GUI Elements\UI_Fonts\im-fell-dw-pica-pro\SIL Open Font License.txt" />
     <Reference Include="Unity.Timeline.Editor">

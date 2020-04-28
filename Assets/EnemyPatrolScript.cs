@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Tobii.G2OM;
+using Tobii.XR;
 
 public class EnemyPatrolScript : MonoBehaviour
 {
@@ -67,7 +69,18 @@ public class EnemyPatrolScript : MonoBehaviour
         
     void Update()
     {
-        if (Vector3.Distance(transform.position, player.position) < distToWalkTowards)
+	if (TobiiXR.FocusedObjects.Count > 0)
+    	{
+        	lookedAt = true;
+    	}
+	else
+	{
+		lookedAt = false;
+	}
+
+	
+	
+        if (Vector3.Distance(transform.position, player.position) < distToWalkTowards || lookedAt == true)
         {
             walkMode = "attack";
         }

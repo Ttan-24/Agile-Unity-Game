@@ -7,11 +7,11 @@ public class LookingScript : MonoBehaviour
     public Camera camera;
     bool mouseClicked;
     public AudioSource doorOpenSound;
+    public AudioSource KeyCollectSound;
 
     // Start is called before the first frame update
     void Start()
     {
-        doorOpenSound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -27,7 +27,6 @@ public class LookingScript : MonoBehaviour
             EnemyPatrolScript enemy = hitObject.GetComponent<EnemyPatrolScript>();
 
             if (enemy != null)
-
             {
                 Debug.Log("reeee");
                 enemy.LookedAt();
@@ -55,6 +54,7 @@ public class LookingScript : MonoBehaviour
                     }
                     if (keyScript != null)
                     {
+                        KeyCollectSound.Play();
                         keyScript.AddKey();
                     }
                     if (healthScript != null)

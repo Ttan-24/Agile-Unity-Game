@@ -8,6 +8,10 @@ public class LookingScript : MonoBehaviour
     public Camera camera;
     bool mouseClicked;
 
+    [SerializeField] private GameObject mazeElements;
+    [SerializeField] private GameObject riddle1Elements;
+    [SerializeField] private GameObject riddle2Elements;
+
     [Header("Scenes To Load")]
     public string riddle1;
     public string riddle2;
@@ -72,7 +76,6 @@ public class LookingScript : MonoBehaviour
                     if (riddle1Script != null)
                     {
                         //open scene
-                        //riddleScript.OpenScene();
                         Debug.Log("opened");
                         //Cursor.visible = false;
                         Screen.lockCursor = false;
@@ -80,12 +83,12 @@ public class LookingScript : MonoBehaviour
                         PlayerPrefs.SetInt("timer", timer); //save time and "send" to riddle script
                         keyCount = KeyCountScript.KeyCount;
                         PlayerPrefs.SetInt("timer", timer); //save time and "send" to riddle script
-                        SceneManager.LoadScene(riddle1);
+                        riddle1Elements.SetActive(true);
+                        mazeElements.SetActive(false);
                     }
                     if (riddle2Script != null)
                     {
                         //open scene
-                        //riddleScript.OpenScene();
                         Debug.Log("opened riddle 2");
                         //Cursor.visible = false;
                         Screen.lockCursor = false;
@@ -93,7 +96,8 @@ public class LookingScript : MonoBehaviour
                         PlayerPrefs.SetInt("timer", timer); //save time and "send" to riddle script
                         keyCount = KeyCountScript.KeyCount;
                         PlayerPrefs.SetInt("timer", timer); //save time and "send" to riddle script
-                        SceneManager.LoadScene(riddle2);
+                        riddle2Elements.SetActive(true);
+                        mazeElements.SetActive(false);
                     }
                 }
 

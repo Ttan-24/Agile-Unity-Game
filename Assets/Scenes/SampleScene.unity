@@ -8855,7 +8855,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &699994373
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13226,12 +13226,12 @@ PrefabInstance:
         type: 3}
       propertyPath: KeyCountText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2116289776}
     - target: {fileID: 6723068470087438588, guid: d3216ba958738bf46ae6d39644b40a68,
         type: 3}
       propertyPath: timer
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 982015395}
     - target: {fileID: 6723068470087438588, guid: d3216ba958738bf46ae6d39644b40a68,
         type: 3}
       propertyPath: username

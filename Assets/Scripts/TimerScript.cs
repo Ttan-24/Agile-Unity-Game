@@ -16,6 +16,7 @@ public class TimerScript : MonoBehaviour
     {
         PlayerPrefs.SetInt("add10sec", 0); //false at the beggining
         PlayerPrefs.SetInt("subtract10sec", 0); //false at the beggining
+        timer = PlayerPrefs.GetInt("startTimer");
     }
 
     // Update is called once per frame

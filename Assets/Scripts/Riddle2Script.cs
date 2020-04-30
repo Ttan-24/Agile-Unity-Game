@@ -89,7 +89,7 @@ public class Riddle2Script : MonoBehaviour
     {
         if (buttonType == "submit")
         {
-            answer = answerInput.GetComponent<InputField>().text.ToString();
+            answer = answerInput.GetComponent<InputField>().text.ToLower().ToString();
             if (answer.ToLower().Contains(correctAnswer))
             {
                 Debug.Log("subsubsub: " + buttonType);
@@ -135,7 +135,7 @@ public class Riddle2Script : MonoBehaviour
         else //button type == back
         {
             //come back to the previous screen
-            Screen.lockCursor = false;
+            Screen.lockCursor = true;
             //UnityEngine.SceneManagement.SceneManager.LoadScene(scene);
             mazeElements.SetActive(true);
             riddle2Elements.SetActive(false);

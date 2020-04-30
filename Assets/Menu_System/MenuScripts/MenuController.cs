@@ -183,7 +183,7 @@ public class MenuController : MonoBehaviour
             //Add players to leaderboard from the file
             entryTemplate.gameObject.SetActive(false);
             highScoreEntryList = new List<HighScoreEntry>(); //create high score list
-            string path = System.IO.Path.GetFullPath(Directory.GetCurrentDirectory() + @"\leaderboard.txt"); //get path to txt file
+            string path = System.IO.Path.GetFullPath(Directory.GetCurrentDirectory() + @"\Assets\leaderboard.txt"); //get path to txt file
             System.IO.StreamReader file = new System.IO.StreamReader(path); //read file
             string line; //current line in the file
             string[] nameAndScore; //get name and score separately
@@ -373,6 +373,8 @@ public class MenuController : MonoBehaviour
             else
             {
                 PlayerPrefs.SetString("username", username); //save username
+                PlayerPrefs.SetInt("startTimer", 0);
+                PlayerPrefs.SetInt("startKeys", 0);
                 //load maze
                 SceneManager.LoadScene(maze);
             }            

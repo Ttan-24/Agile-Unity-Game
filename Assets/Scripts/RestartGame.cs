@@ -16,7 +16,8 @@ public class RestartGame : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            SceneManager.LoadScene("SampleScene");
+            Screen.lockCursor = false;
+            SceneManager.LoadScene("MainMenu");
         }
     }
 }

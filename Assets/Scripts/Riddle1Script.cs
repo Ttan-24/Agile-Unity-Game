@@ -186,7 +186,7 @@ public class Riddle1Script : MonoBehaviour
         else //button type == back
         {
             //come back to the previous screen
-            Screen.lockCursor = false;
+            Screen.lockCursor = true;
             mazeElements.SetActive(true);
             riddle1Elements.SetActive(false);
         }

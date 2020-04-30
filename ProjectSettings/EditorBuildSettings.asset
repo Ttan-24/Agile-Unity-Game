@@ -23,13 +23,13 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 1
-    path: Assets/Scenes/Riddle-1.unity
-    guid: 4f10c83bb20f7054fb70cc86707e49a0
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Instructions.unity
     guid: 7dcafbb8fad96ae46a8e45910ec455bb
-  - enabled: 1
-    path: Assets/Scenes/Riddle-2.unity
-    guid: 637c36c6c1389604e9964c4d0fc569f5
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   m_configObjects: {}

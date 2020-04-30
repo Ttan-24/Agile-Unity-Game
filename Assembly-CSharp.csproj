@@ -63,7 +63,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\GhostAudioScript.cs" />
     <Compile Include="Assets\Menu_System\GUI Elements\UI_BrightnessShader\Brightness.cs" />
     <Compile Include="Assets\Menu_System\MenuScripts\Init_LoadPreferences.cs" />
     <Compile Include="Assets\Menu_System\MenuScripts\MenuController.cs" />
@@ -72,6 +71,7 @@
     <Compile Include="Assets\Scripts\DoorScript.cs" />
     <Compile Include="Assets\Scripts\EnemyFollowMovement.cs" />
     <Compile Include="Assets\Scripts\EnemyPatrolScript.cs" />
+    <Compile Include="Assets\Scripts\GhostAudioScript.cs" />
     <Compile Include="Assets\Scripts\HealthEnemy.cs" />
     <Compile Include="Assets\Scripts\InstructionsSwitchScene.cs" />
     <Compile Include="Assets\Scripts\KeyCountScript.cs" />

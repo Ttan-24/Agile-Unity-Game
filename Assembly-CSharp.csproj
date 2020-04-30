@@ -66,6 +66,8 @@
     <Compile Include="Assets\Menu_System\GUI Elements\UI_BrightnessShader\Brightness.cs" />
     <Compile Include="Assets\Menu_System\MenuScripts\Init_LoadPreferences.cs" />
     <Compile Include="Assets\Menu_System\MenuScripts\MenuController.cs" />
+    <Compile Include="Assets\Models\Laterns and candles\scripts\CameraFacing.cs" />
+    <Compile Include="Assets\Models\Laterns and candles\scripts\ExtendedFlycam.cs" />
     <Compile Include="Assets\Scripts\AttackPlayer.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\DoorScript.cs" />
@@ -87,6 +89,7 @@
     <Compile Include="Assets\Scripts\TimerScript.cs" />
     <Compile Include="Assets\Scripts\UsernameScript.cs" />
     <None Include="Assets\Misc\leaderboard.txt" />
+    <None Include="Assets\Models\Laterns and candles\Shaders\GlassStainedBumpDistort.shader" />
     <None Include="Assets\Menu_System\GUI Elements\UI_BrightnessShader\BrightnessEffect.shader" />
     <None Include="Assets\Models\Tim's Assets\Doors\Shader\BloodyDoor.shader" />
     <None Include="Assets\Menu_System\GUI Elements\UI_Fonts\im-fell-dw-pica-pro\SIL Open Font License.txt" />

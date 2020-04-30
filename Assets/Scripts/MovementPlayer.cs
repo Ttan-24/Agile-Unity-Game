@@ -8,6 +8,7 @@ public class MovementPlayer : MonoBehaviour
     public float moveSpeed;
     public float rotationSpeed;
     public GameObject camera;
+    public AudioSource playerFootstepsSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -47,5 +48,14 @@ public class MovementPlayer : MonoBehaviour
         }
 
         m_rigidbody.velocity *= 0.92f;
+
+        if (m_rigidbody.velocity.magnitude > 0.5f)
+        {
+            playerFootstepsSound.volume = 0.3f;
+        }
+        else
+        {
+            playerFootstepsSound.volume = 0;
+        }
     }
 }

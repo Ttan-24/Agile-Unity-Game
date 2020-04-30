@@ -51,7 +51,7 @@ public class MovementPlayer : MonoBehaviour
 
         if (m_rigidbody.velocity.magnitude > 0.5f)
         {
-            playerFootstepsSound.volume = 0.3f;
+            playerFootstepsSound.volume = 1.0f;
         }
         else
         {

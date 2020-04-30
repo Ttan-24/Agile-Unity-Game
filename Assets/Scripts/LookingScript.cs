@@ -19,6 +19,7 @@ public class LookingScript : MonoBehaviour
     private static int timer; //use timer from another script
     private static int keyCount; //use keyCount from another script
 
+    public AudioSource doorOpenSound;
     public AudioSource KeyCollectSound;
 
     // Start is called before the first frame update
@@ -65,10 +66,12 @@ public class LookingScript : MonoBehaviour
                 {
                     if (doorScript != null)
                     {
+                        doorOpenSound.Play();
                         doorScript.Open();
                     }
                     if (keyScript != null)
                     {
+                        KeyCollectSound.Play();
                         keyScript.AddKey();
                     }
                     if (healthScript != null)

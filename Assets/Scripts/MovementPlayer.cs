@@ -7,6 +7,7 @@ public class MovementPlayer : MonoBehaviour
     private Rigidbody m_rigidbody;
     public float moveSpeed;
     public float rotationSpeed;
+    public GameObject camera;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,7 +35,12 @@ public class MovementPlayer : MonoBehaviour
             m_rigidbody.velocity -= transform.forward * moveSpeed;
         }
         float mouseX = Input.GetAxis("Mouse X");
+        float mouseY = Input.GetAxis("Mouse Y");
         transform.Rotate(0, mouseX * rotationSpeed, 0);
+        if (camera.transform.rotation.eulerAngles.x - (mouseY * rotationSpeed) <= 60 || camera.transform.rotation.eulerAngles.x - (mouseY * rotationSpeed) >= 300)
+        {
+            camera.transform.Rotate(-mouseY * rotationSpeed, 0, 0);
+        }
         if (Input.GetKeyDown(KeyCode.Space))
         {
             m_rigidbody.AddForce(new Vector3(0, 1000.0f, 0));

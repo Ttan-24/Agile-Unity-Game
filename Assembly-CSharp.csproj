@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{FFE077F4-C8DF-D7CF-1BED-3C4B99E1CB53}</ProjectGuid>
+    <ProjectGuid>{F33AA176-7F99-19A5-1136-B7D24F5C5BEB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -87,39 +87,122 @@
     <Compile Include="Assets\Scripts\RiddleScript.cs" />
     <Compile Include="Assets\Scripts\SwitchScenes.cs" />
     <Compile Include="Assets\Scripts\TimerScript.cs" />
+    <Compile Include="Assets\Scripts\TobiiStarter.cs" />
     <Compile Include="Assets\Scripts\UsernameScript.cs" />
+    <Compile Include="Assets\TobiiXR\Examples\HandEyeCoordination_Example\Plugins\Tobii.HEC.Interop.cs" />
+    <Compile Include="Assets\TobiiXR\Examples\HandEyeCoordination_Example\Scripts\Grabbing\GazeGrab.cs" />
+    <Compile Include="Assets\TobiiXR\Examples\HandEyeCoordination_Example\Scripts\Grabbing\GazeGrabbableObject.cs" />
+    <Compile Include="Assets\TobiiXR\Examples\HandEyeCoordination_Example\Scripts\Throwing\GazeThrowTarget.cs" />
+    <Compile Include="Assets\TobiiXR\Examples\HandEyeCoordination_Example\Scripts\Throwing\GazeThrowableObject.cs" />
+    <Compile Include="Assets\TobiiXR\Examples\HandEyeCoordination_Example\Scripts\Throwing\ThrowAtGaze.cs" />
+    <Compile Include="Assets\TobiiXR\Examples\HandEyeCoordination_Example\Scripts\Utilities\GazeOutline.cs" />
+    <Compile Include="Assets\TobiiXR\Examples\HandEyeCoordination_Example\Scripts\Utilities\ResetObjectPosition.cs" />
+    <Compile Include="Assets\TobiiXR\Examples\HandEyeCoordination_Example\Scripts\Utilities\TobiiXRThrowingSceneManager.cs" />
+    <Compile Include="Assets\TobiiXR\Examples\Social_Example\Scripts\FollowCameraHeight.cs" />
+    <Compile Include="Assets\TobiiXR\Examples\Social_Example\Scripts\Handle2DEyes.cs" />
+    <Compile Include="Assets\TobiiXR\Examples\Social_Example\Scripts\Handle3DExpressions.cs" />
+    <Compile Include="Assets\TobiiXR\Examples\Social_Example\Scripts\Handle3DEyelids.cs" />
+    <Compile Include="Assets\TobiiXR\Examples\Social_Example\Scripts\Handle3DEyes.cs" />
+    <Compile Include="Assets\TobiiXR\Examples\Social_Example\Scripts\HandleHands.cs" />
+    <Compile Include="Assets\TobiiXR\Examples\Social_Example\Scripts\RotateWithHMD.cs" />
+    <Compile Include="Assets\TobiiXR\Examples\UI_Example\Scripts\Graphics\UIGazeButtonGraphics.cs" />
+    <Compile Include="Assets\TobiiXR\Examples\UI_Example\Scripts\Graphics\UIGazeSliderGraphics.cs" />
+    <Compile Include="Assets\TobiiXR\Examples\UI_Example\Scripts\Graphics\UIGazeToggleButtonGraphics.cs" />
+    <Compile Include="Assets\TobiiXR\Examples\UI_Example\Scripts\Touchpad\UITouchpadGazeButton.cs" />
+    <Compile Include="Assets\TobiiXR\Examples\UI_Example\Scripts\Touchpad\UITouchpadGazeSlider.cs" />
+    <Compile Include="Assets\TobiiXR\Examples\UI_Example\Scripts\Touchpad\UITouchpadGazeToggleButton.cs" />
+    <Compile Include="Assets\TobiiXR\Examples\UI_Example\Scripts\Touchpad\UITouchpadSwipeDetector.cs" />
+    <Compile Include="Assets\TobiiXR\Examples\UI_Example\Scripts\Trigger\UITriggerDragDetector.cs" />
+    <Compile Include="Assets\TobiiXR\Examples\UI_Example\Scripts\Trigger\UITriggerGazeButton.cs" />
+    <Compile Include="Assets\TobiiXR\Examples\UI_Example\Scripts\Trigger\UITriggerGazeSlider.cs" />
+    <Compile Include="Assets\TobiiXR\Examples\UI_Example\Scripts\Trigger\UITriggerGazeToggleButton.cs" />
+    <Compile Include="Assets\TobiiXR\Examples\UI_Example\Scripts\Utilities\UIEvents.cs" />
+    <Compile Include="Assets\TobiiXR\Examples\UI_Example\Scripts\Utilities\UIPrinter.cs" />
+    <Compile Include="Assets\TobiiXR\Examples\Utilities\Controller\Plugins\openvr_api.cs" />
+    <Compile Include="Assets\TobiiXR\Examples\Utilities\Controller\Scripts\ControllerManager.cs" />
+    <Compile Include="Assets\TobiiXR\Examples\Utilities\Controller\Scripts\ControllerVisualizer.cs" />
+    <Compile Include="Assets\TobiiXR\Examples\Utilities\Controller\Scripts\OpenVRControllerAdapter.cs" />
+    <Compile Include="Assets\TobiiXR\Examples\Utilities\Controller\Scripts\PicoControllerAdapter.cs" />
+    <Compile Include="Assets\TobiiXR\Examples\Utilities\G2OM_SimpleMovement.cs" />
+    <Compile Include="Assets\TobiiXR\Examples\Utilities\G2OM_SimpleRotation.cs" />
+    <Compile Include="Assets\TobiiXR\Examples\Utilities\G2OM_SimpleScaling.cs" />
+    <Compile Include="Assets\TobiiXR\Examples\Utilities\HighlightAtGaze.cs" />
+    <Compile Include="Assets\TobiiXR\Examples\Utilities\UIGazeCollider.cs" />
+    <Compile Include="Assets\TobiiXR\Examples\Utilities\UIHighlightAtGaze.cs" />
+    <Compile Include="Assets\TobiiXR\External\Providers\Pico\PicoProvider.cs" />
+    <Compile Include="Assets\TobiiXR\External\Providers\Vive\ViveProvider.cs" />
+    <Compile Include="Assets\ViveSR\Scripts\Eye\SRanipal_Eye.cs" />
+    <Compile Include="Assets\ViveSR\Scripts\Eye\SRanipal_EyeData.cs" />
+    <Compile Include="Assets\ViveSR\Scripts\Eye\SRanipal_EyeDataType_v1.cs" />
+    <Compile Include="Assets\ViveSR\Scripts\Eye\SRanipal_EyeDataType_v2.cs" />
+    <Compile Include="Assets\ViveSR\Scripts\Eye\SRanipal_EyeShapeTableDrawer.cs" />
+    <Compile Include="Assets\ViveSR\Scripts\Eye\SRanipal_Eye_API.cs" />
+    <Compile Include="Assets\ViveSR\Scripts\Eye\SRanipal_Eye_Enums.cs" />
+    <Compile Include="Assets\ViveSR\Scripts\Eye\SRanipal_Eye_Framework.cs" />
+    <Compile Include="Assets\ViveSR\Scripts\Eye\SRanipal_Eye_v2.cs" />
+    <Compile Include="Assets\ViveSR\Scripts\Eye\Sample\DartBoard.cs" />
+    <Compile Include="Assets\ViveSR\Scripts\Eye\Sample\SRanipal_AvatarEyeSample.cs" />
+    <Compile Include="Assets\ViveSR\Scripts\Eye\Sample\SRanipal_AvatarEyeSample_v2.cs" />
+    <Compile Include="Assets\ViveSR\Scripts\Eye\Sample\SRanipal_EyeFocusSample.cs" />
+    <Compile Include="Assets\ViveSR\Scripts\Eye\Sample\SRanipal_EyeFocusSample_v2.cs" />
+    <Compile Include="Assets\ViveSR\Scripts\Eye\Sample\SRanipal_EyeSettingSample.cs" />
+    <Compile Include="Assets\ViveSR\Scripts\Eye\Sample\SRanipal_GazeRaySample.cs" />
+    <Compile Include="Assets\ViveSR\Scripts\Eye\Sample\SRanipal_GazeRaySample_v2.cs" />
+    <Compile Include="Assets\ViveSR\Scripts\Eye\Sample\SRanipal_MirrorCameraSample_Eye.cs" />
+    <Compile Include="Assets\ViveSR\Scripts\Eye\Sample\SRanipal_MirrorCameraSample_Eye_v2.cs" />
+    <Compile Include="Assets\ViveSR\Scripts\Lip\SRanipal_Lip.cs" />
+    <Compile Include="Assets\ViveSR\Scripts\Lip\SRanipal_LipData_v1.cs" />
+    <Compile Include="Assets\ViveSR\Scripts\Lip\SRanipal_LipData_v2.cs" />
+    <Compile Include="Assets\ViveSR\Scripts\Lip\SRanipal_LipShapeTableDrawer.cs" />
+    <Compile Include="Assets\ViveSR\Scripts\Lip\SRanipal_LipShapeTableDrawer_v2.cs" />
+    <Compile Include="Assets\ViveSR\Scripts\Lip\SRanipal_Lip_API.cs" />
+    <Compile Include="Assets\ViveSR\Scripts\Lip\SRanipal_Lip_Framework.cs" />
+    <Compile Include="Assets\ViveSR\Scripts\Lip\SRanipal_Lip_v2.cs" />
+    <Compile Include="Assets\ViveSR\Scripts\Lip\Sample\SRanipal_AvatarLipSample.cs" />
+    <Compile Include="Assets\ViveSR\Scripts\Lip\Sample\SRanipal_AvatarLipSample_v2.cs" />
+    <Compile Include="Assets\ViveSR\Scripts\Lip\Sample\SRanipal_MirrorCameraSample_Lip.cs" />
+    <Compile Include="Assets\ViveSR\Scripts\SRWorks_Enums.cs" />
+    <Compile Include="Assets\ViveSR\Scripts\SRanipal_API.cs" />
+    <Compile Include="Assets\ViveSR\Scripts\SRanipal_Enums.cs" />
     <None Include="Assets\Misc\leaderboard.txt" />
+    <None Include="Assets\ViveSR\Shaders\Unlit-Alpha2Gray.shader" />
+    <None Include="Assets\TobiiXR\Examples\HandEyeCoordination_Example\Shaders\UltimateOutline.shader" />
     <None Include="Assets\Models\Laterns and candles\Shaders\GlassStainedBumpDistort.shader" />
+    <None Include="Assets\ViveSR\Shaders\DartBoardShader.shader" />
     <None Include="Assets\leaderboard.txt" />
     <None Include="Assets\Menu_System\GUI Elements\UI_BrightnessShader\BrightnessEffect.shader" />
+    <None Include="Assets\TobiiXR\External\readme.txt" />
     <None Include="Assets\Models\Tim's Assets\Doors\Shader\BloodyDoor.shader" />
+    <None Include="Assets\TobiiXR\External\Providers\Vive\readme.txt" />
     <None Include="Assets\Menu_System\GUI Elements\UI_Fonts\im-fell-dw-pica-pro\SIL Open Font License.txt" />
+    <None Include="Assets\TobiiXR\Examples\HandEyeCoordination_Example\Shaders\LICENSE.txt" />
+    <None Include="Assets\TobiiXR\readme.txt" />
     <Reference Include="Unity.Timeline.Editor">
-      <HintPath>D:/Windows Documents/GitHub/Agile-Unity-Game/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+      <HintPath>C:/Users/44739/Documents/Agile-Unity-Game-New-Test (3)/Agile-Unity-Game-New-Test/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-      <HintPath>D:/Windows Documents/GitHub/Agile-Unity-Game/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+      <HintPath>C:/Users/44739/Documents/Agile-Unity-Game-New-Test (3)/Agile-Unity-Game-New-Test/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>D:/Windows Documents/GitHub/Agile-Unity-Game/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>C:/Users/44739/Documents/Agile-Unity-Game-New-Test (3)/Agile-Unity-Game-New-Test/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>D:/Windows Documents/GitHub/Agile-Unity-Game/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>C:/Users/44739/Documents/Agile-Unity-Game-New-Test (3)/Agile-Unity-Game-New-Test/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-      <HintPath>D:/Windows Documents/GitHub/Agile-Unity-Game/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+      <HintPath>C:/Users/44739/Documents/Agile-Unity-Game-New-Test (3)/Agile-Unity-Game-New-Test/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>D:/Windows Documents/GitHub/Agile-Unity-Game/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>C:/Users/44739/Documents/Agile-Unity-Game-New-Test (3)/Agile-Unity-Game-New-Test/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-      <HintPath>D:/Windows Documents/GitHub/Agile-Unity-Game/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+      <HintPath>C:/Users/44739/Documents/Agile-Unity-Game-New-Test (3)/Agile-Unity-Game-New-Test/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>D:/Windows Documents/GitHub/Agile-Unity-Game/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>C:/Users/44739/Documents/Agile-Unity-Game-New-Test (3)/Agile-Unity-Game-New-Test/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-      <HintPath>D:/Windows Documents/GitHub/Agile-Unity-Game/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>C:/Users/44739/Documents/Agile-Unity-Game-New-Test (3)/Agile-Unity-Game-New-Test/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.7f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -297,6 +380,9 @@
     </Reference>
     <Reference Include="UnityEngine.XRModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.7f1/Editor/Data/Managed/UnityEngine/UnityEngine.XRModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Valve.Newtonsoft.Json">
+      <HintPath>C:/Users/44739/Documents/Agile-Unity-Game-New-Test (3)/Agile-Unity-Game-New-Test/Assets/SteamVR/Input/Plugins/JSON.NET/Valve.Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.7f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
@@ -652,6 +738,52 @@
     <Reference Include="Boo.Lang">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.7f1/Editor/Data/MonoBleedingEdge/lib/mono/unityscript/Boo.Lang.dll</HintPath>
     </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="TobiiXREditor.csproj">
+      <Project>{BFB85012-F5E1-F013-947E-C4E5562BC30D}</Project>
+      <Name>TobiiXREditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="TobiiXRSDK.csproj">
+      <Project>{260AA365-961C-7EEC-DE3D-70E1C95C19FB}</Project>
+      <Name>TobiiXRSDK</Name>
+    </ProjectReference>
+    <ProjectReference Include="GazeModifierEditor.csproj">
+      <Project>{66EE6373-CE70-CE3E-DD0B-A936B9B6533A}</Project>
+      <Name>GazeModifierEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="TobiiXRCore.csproj">
+      <Project>{F09A0383-E944-1658-0188-DD126D31C577}</Project>
+      <Name>TobiiXRCore</Name>
+    </ProjectReference>
+    <ProjectReference Include="TobiiXRInternalEditor.csproj">
+      <Project>{FF90E4FD-BC2C-D311-FB2F-0236BAD2F3EC}</Project>
+      <Name>TobiiXRInternalEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="TobiiXRG2OM.csproj">
+      <Project>{DB1431A1-DF39-13F6-62E7-740EFC737A7C}</Project>
+      <Name>TobiiXRG2OM</Name>
+    </ProjectReference>
+    <ProjectReference Include="SteamVR_Input_Editor.csproj">
+      <Project>{E4430FB5-F609-AD1B-522D-978EECEAA751}</Project>
+      <Name>SteamVR_Input_Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="TobiiXRDevTools.csproj">
+      <Project>{A691965A-6D91-107F-AD15-33938BAB087A}</Project>
+      <Name>TobiiXRDevTools</Name>
+    </ProjectReference>
+    <ProjectReference Include="SteamVR_Editor.csproj">
+      <Project>{008FB510-6753-11DB-8A9C-2B707966D72B}</Project>
+      <Name>SteamVR_Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="SteamVR.csproj">
+      <Project>{AA24416B-E0A1-5FE7-AF33-7DFACAD174DE}</Project>
+      <Name>SteamVR</Name>
+    </ProjectReference>
+    <ProjectReference Include="SteamVR_Windows_EditorHelper.csproj">
+      <Project>{4342F6D9-8D0A-5AB4-CB35-C02EDFEDAAA1}</Project>
+      <Name>SteamVR_Windows_EditorHelper</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

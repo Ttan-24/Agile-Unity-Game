@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityScript.Steps;
 using System;
 
 public class Riddle1Script : MonoBehaviour

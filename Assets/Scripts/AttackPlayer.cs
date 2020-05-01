@@ -10,11 +10,6 @@ public class AttackPlayer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //dist requires a min of 4 to work
-        if (range < 10)
-        {
-            range = 10;
-        }
 
     }
 
